@@ -18,26 +18,26 @@
     html { scroll-behavior: smooth; font-size: 16px; }
 
     :root {
-      --bg:          #080808;
-      --bg-1:        #0e0e0e;
-      --bg-2:        #141414;
-      --bg-3:        #1a1a1a;
-      --surface:     #1f1f1f;
-      --border:      rgba(255,255,255,0.07);
-      --border-h:    rgba(255,255,255,0.14);
+      --bg:          #ffffff;
+      --bg-1:        #f8f7f5;
+      --bg-2:        #f2f0ec;
+      --bg-3:        #eceae6;
+      --surface:     #ffffff;
+      --border:      rgba(0,0,0,0.07);
+      --border-h:    rgba(0,0,0,0.14);
 
-      --white:       #ffffff;
-      --off-white:   #f0ede8;
-      --gray-1:      #e8e4df;
-      --gray-2:      #b8b4af;
-      --gray-3:      #787470;
-      --gray-4:      #454240;
+      --black:       #0a0a0a;
+      --dark:        #1a1a1a;
+      --gray-1:      #2d2d2d;
+      --gray-2:      #555555;
+      --gray-3:      #888888;
+      --gray-4:      #bbbbbb;
 
       --orange:      #FF5C00;
-      --orange-glow: rgba(255,92,0,0.18);
-      --orange-soft: rgba(255,92,0,0.08);
-      --sky:         #38BDF8;
-      --sky-glow:    rgba(56,189,248,0.12);
+      --orange-glow: rgba(255,92,0,0.15);
+      --orange-soft: rgba(255,92,0,0.07);
+      --sky:         #0080CC;
+      --sky-glow:    rgba(0,128,204,0.10);
 
       --nav-h:       72px;
       --radius-sm:   10px;
@@ -93,17 +93,17 @@
     .label::before {
       content: '';
       display: block;
-      width: 20px; height: 1px;
+      width: 20px; height: 1.5px;
       background: var(--orange);
     }
 
     .section-title {
       font-family: var(--font-display);
       font-size: clamp(2.2rem, 4.5vw, 3.6rem);
-      font-weight: 600;
-      line-height: 1.1;
+      font-weight: 700;
+      line-height: 1.08;
       letter-spacing: -0.02em;
-      color: var(--white);
+      color: var(--black);
     }
 
     .section-title em {
@@ -114,7 +114,7 @@
     .section-sub {
       font-size: clamp(0.95rem, 1.5vw, 1.05rem);
       font-weight: 300;
-      color: var(--gray-3);
+      color: var(--gray-2);
       line-height: 1.75;
       max-width: 500px;
       margin-top: 1rem;
@@ -152,20 +152,20 @@
       color: #fff;
     }
     .btn-primary:hover {
-      background: #ff7430;
+      background: #e04d00;
       transform: translateY(-2px);
-      box-shadow: 0 14px 40px rgba(255,92,0,0.35);
+      box-shadow: 0 14px 40px rgba(255,92,0,0.30);
     }
 
     .btn-outline {
       padding: 0.82rem 1.9rem;
       background: transparent;
       color: var(--gray-1);
-      border: 1px solid var(--border-h);
+      border: 1.5px solid var(--border-h);
     }
     .btn-outline:hover {
-      border-color: rgba(255,255,255,0.3);
-      color: var(--white);
+      border-color: var(--black);
+      color: var(--black);
       transform: translateY(-2px);
     }
 
@@ -177,7 +177,7 @@
     .btn-wsp:hover {
       background: #1db954;
       transform: translateY(-2px);
-      box-shadow: 0 12px 36px rgba(37,211,102,0.35);
+      box-shadow: 0 12px 36px rgba(37,211,102,0.30);
     }
 
     .btn svg { flex-shrink: 0; }
@@ -192,14 +192,17 @@
       height: var(--nav-h);
       display: flex;
       align-items: center;
-      transition: background 0.4s, border-color 0.4s;
+      transition: background 0.4s, border-color 0.4s, box-shadow 0.4s;
       border-bottom: 1px solid transparent;
+      background: rgba(255,255,255,0.5);
+      backdrop-filter: blur(20px) saturate(160%);
     }
 
     #nav.scrolled {
-      background: rgba(8,8,8,0.88);
-      backdrop-filter: blur(24px) saturate(160%);
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(24px) saturate(180%);
       border-bottom-color: var(--border);
+      box-shadow: 0 2px 24px rgba(0,0,0,0.06);
     }
 
     #nav .container {
@@ -230,7 +233,7 @@
       font-family: var(--font-display);
       font-size: 1rem;
       font-weight: 700;
-      color: var(--white);
+      color: var(--black);
       letter-spacing: -0.01em;
     }
 
@@ -250,13 +253,13 @@
 
     .nav-links a {
       font-size: 0.83rem;
-      font-weight: 400;
-      color: var(--gray-3);
+      font-weight: 500;
+      color: var(--gray-2);
       transition: color 0.2s;
       letter-spacing: 0.01em;
     }
 
-    .nav-links a:hover { color: var(--white); }
+    .nav-links a:hover { color: var(--black); }
 
     .nav-actions {
       display: flex;
@@ -278,7 +281,7 @@
       display: block;
       width: 22px;
       height: 1.5px;
-      background: var(--gray-2);
+      background: var(--gray-1);
       border-radius: 2px;
       transition: transform 0.3s, opacity 0.3s;
     }
@@ -289,7 +292,7 @@
       position: fixed;
       inset: 0;
       z-index: 190;
-      background: rgba(8,8,8,0.97);
+      background: rgba(255,255,255,0.97);
       backdrop-filter: blur(20px);
       flex-direction: column;
       align-items: center;
@@ -302,8 +305,8 @@
     .mobile-nav a {
       font-family: var(--font-display);
       font-size: 1.8rem;
-      font-weight: 600;
-      color: var(--gray-1);
+      font-weight: 700;
+      color: var(--black);
       transition: color 0.2s;
     }
 
@@ -319,14 +322,15 @@
       position: relative;
       overflow: hidden;
       padding-top: var(--nav-h);
+      background: var(--bg);
     }
 
     .hero-grid-bg {
       position: absolute;
       inset: 0;
       background-image:
-        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+        linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px);
       background-size: 80px 80px;
       mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
       pointer-events: none;
@@ -336,7 +340,7 @@
       position: absolute;
       top: -10%; right: -8%;
       width: 700px; height: 700px;
-      background: radial-gradient(circle, rgba(255,92,0,0.10) 0%, transparent 65%);
+      background: radial-gradient(circle, rgba(255,92,0,0.07) 0%, transparent 65%);
       pointer-events: none;
       animation: float-glow 10s ease-in-out infinite alternate;
     }
@@ -345,7 +349,7 @@
       position: absolute;
       bottom: 0; left: -10%;
       width: 600px; height: 500px;
-      background: radial-gradient(circle, rgba(56,189,248,0.07) 0%, transparent 65%);
+      background: radial-gradient(circle, rgba(0,128,204,0.05) 0%, transparent 65%);
       pointer-events: none;
       animation: float-glow 13s ease-in-out infinite alternate-reverse;
     }
@@ -366,21 +370,19 @@
       padding: 6rem 0;
     }
 
-    .hero-content {}
-
     .hero-badge {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
       padding: 0.35rem 1rem;
-      border: 1px solid rgba(56,189,248,0.25);
+      border: 1.5px solid rgba(0,128,204,0.25);
       border-radius: 100px;
       font-size: 0.72rem;
       font-weight: 600;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--sky);
-      background: rgba(56,189,248,0.06);
+      background: rgba(0,128,204,0.05);
       margin-bottom: 2rem;
       opacity: 0;
       animation: fadeUp 0.8s 0.1s var(--ease-out) forwards;
@@ -395,7 +397,7 @@
 
     @keyframes blink {
       0%,100% { opacity:1; }
-      50%      { opacity:0.2; }
+      50%      { opacity:0.25; }
     }
 
     .hero-title {
@@ -404,7 +406,7 @@
       font-weight: 700;
       line-height: 1.03;
       letter-spacing: -0.03em;
-      color: var(--white);
+      color: var(--black);
       margin-bottom: 1.75rem;
       opacity: 0;
       animation: fadeUp 0.9s 0.25s var(--ease-out) forwards;
@@ -419,7 +421,7 @@
     .hero-sub {
       font-size: clamp(1rem, 1.6vw, 1.15rem);
       font-weight: 300;
-      color: var(--gray-3);
+      color: var(--gray-2);
       line-height: 1.75;
       max-width: 480px;
       margin-bottom: 2.75rem;
@@ -442,7 +444,7 @@
       gap: 2.5rem;
       flex-wrap: wrap;
       padding-top: 2.5rem;
-      border-top: 1px solid var(--border);
+      border-top: 1.5px solid var(--border);
       opacity: 0;
       animation: fadeUp 0.9s 0.7s var(--ease-out) forwards;
     }
@@ -451,7 +453,7 @@
       font-family: var(--font-display);
       font-size: 2.1rem;
       font-weight: 700;
-      color: var(--white);
+      color: var(--black);
       letter-spacing: -0.04em;
       line-height: 1;
     }
@@ -477,8 +479,8 @@
       overflow: hidden;
       box-shadow:
         0 0 0 1px var(--border),
-        0 40px 80px rgba(0,0,0,0.6),
-        0 0 60px rgba(255,92,0,0.08);
+        0 40px 80px rgba(0,0,0,0.12),
+        0 0 60px rgba(255,92,0,0.05);
     }
 
     .hero-img-wrap img {
@@ -491,11 +493,7 @@
     .hero-img-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(
-        to bottom,
-        transparent 60%,
-        rgba(8,8,8,0.7) 100%
-      );
+      background: linear-gradient(to bottom, transparent 60%, rgba(255,255,255,0.3) 100%);
     }
 
     .hero-img-tag {
@@ -503,7 +501,7 @@
       bottom: 1.5rem;
       left: 1.5rem;
       right: 1.5rem;
-      background: rgba(14,14,14,0.85);
+      background: rgba(255,255,255,0.90);
       backdrop-filter: blur(12px);
       border: 1px solid var(--border-h);
       border-radius: var(--radius);
@@ -531,7 +529,7 @@
 
     .hero-tag-text strong {
       display: block;
-      color: var(--white);
+      color: var(--black);
       font-weight: 600;
       font-size: 0.85rem;
       margin-bottom: 0.15rem;
@@ -541,12 +539,12 @@
       position: absolute;
       top: 2rem;
       right: -1.5rem;
-      background: var(--bg-3);
-      border: 1px solid var(--border-h);
+      background: var(--bg);
+      border: 1.5px solid var(--border-h);
       border-radius: var(--radius);
       padding: 0.9rem 1.1rem;
       animation: float-card 6s ease-in-out infinite;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.10);
     }
 
     @keyframes float-card {
@@ -558,7 +556,7 @@
       font-family: var(--font-display);
       font-size: 1.5rem;
       font-weight: 700;
-      color: var(--white);
+      color: var(--black);
       letter-spacing: -0.03em;
     }
 
@@ -596,7 +594,7 @@
       font-weight: 600;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--gray-4);
+      color: var(--gray-3);
       white-space: nowrap;
       display: flex;
       align-items: center;
@@ -632,7 +630,7 @@
     .section-header.center .section-sub { margin: 1rem auto 0; }
 
     /* ═══════════════════════════════════════════════
-       SERVICES (LANDING PAGES)
+       SERVICIOS (LANDING PAGES)
     ═══════════════════════════════════════════════ */
     #servicios { background: var(--bg-1); }
 
@@ -641,12 +639,6 @@
       grid-template-columns: 1fr 1fr;
       gap: 5rem;
       align-items: center;
-    }
-
-    .services-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
     }
 
     .service-item {
@@ -674,21 +666,19 @@
     .service-name {
       font-size: 1rem;
       font-weight: 600;
-      color: var(--white);
+      color: var(--black);
       margin-bottom: 0.35rem;
       letter-spacing: -0.01em;
     }
 
     .service-desc {
       font-size: 0.855rem;
-      color: var(--gray-3);
+      color: var(--gray-2);
       line-height: 1.65;
       font-weight: 300;
     }
 
-    .services-visual {
-      position: relative;
-    }
+    .services-visual { position: relative; }
 
     .services-img-stack {
       position: relative;
@@ -699,38 +689,25 @@
       position: absolute;
       border-radius: var(--radius-lg);
       overflow: hidden;
-      box-shadow: 0 30px 70px rgba(0,0,0,0.55);
+      box-shadow: 0 30px 70px rgba(0,0,0,0.15);
       border: 1px solid var(--border-h);
     }
 
     .si-card-main {
-      width: 80%;
-      top: 0; right: 0;
-      height: 340px;
+      width: 80%; top: 0; right: 0; height: 340px;
     }
 
-    .si-card-main img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+    .si-card-main img { width: 100%; height: 100%; object-fit: cover; }
 
     .si-card-sub {
-      width: 65%;
-      bottom: 0; left: 0;
-      height: 230px;
+      width: 65%; bottom: 0; left: 0; height: 230px;
     }
 
-    .si-card-sub img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+    .si-card-sub img { width: 100%; height: 100%; object-fit: cover; }
 
     .si-badge {
       position: absolute;
-      top: 50%;
-      left: 50%;
+      top: 50%; left: 50%;
       transform: translate(-50%, -50%);
       background: var(--orange);
       color: #fff;
@@ -741,12 +718,12 @@
       padding: 0.45rem 1rem;
       border-radius: 100px;
       white-space: nowrap;
-      box-shadow: 0 8px 24px rgba(255,92,0,0.4);
+      box-shadow: 0 8px 24px rgba(255,92,0,0.35);
       z-index: 10;
     }
 
     /* ═══════════════════════════════════════════════
-       BENEFITS
+       BENEFICIOS
     ═══════════════════════════════════════════════ */
     #beneficios { background: var(--bg); }
 
@@ -761,7 +738,7 @@
     }
 
     .benefit-card {
-      background: var(--bg-1);
+      background: var(--bg);
       padding: 2.5rem;
       position: relative;
       overflow: hidden;
@@ -778,14 +755,14 @@
       transition: opacity 0.4s;
     }
 
-    .benefit-card:hover { background: var(--bg-2); }
+    .benefit-card:hover { background: var(--bg-1); }
     .benefit-card:hover::after { opacity: 1; }
 
     .benefit-icon {
       width: 44px; height: 44px;
       border-radius: var(--radius-sm);
       background: var(--orange-soft);
-      border: 1px solid rgba(255,92,0,0.2);
+      border: 1px solid rgba(255,92,0,0.15);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -796,20 +773,20 @@
     .benefit-name {
       font-size: 1.05rem;
       font-weight: 600;
-      color: var(--white);
+      color: var(--black);
       margin-bottom: 0.6rem;
       letter-spacing: -0.01em;
     }
 
     .benefit-desc {
       font-size: 0.855rem;
-      color: var(--gray-3);
+      color: var(--gray-2);
       line-height: 1.7;
       font-weight: 300;
     }
 
     /* ═══════════════════════════════════════════════
-       GALLERY / TRABAJOS
+       TRABAJOS / GALERÍA
     ═══════════════════════════════════════════════ */
     #trabajos { background: var(--bg-1); }
 
@@ -824,8 +801,7 @@
 
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      grid-template-rows: auto;
+      grid-template-columns: repeat(3, 1fr);
       gap: 1.25rem;
     }
 
@@ -835,19 +811,19 @@
       position: relative;
       cursor: pointer;
       background: var(--bg-2);
+      height: 320px;
     }
 
     .gal-item::after {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(to bottom, transparent 50%, rgba(8,8,8,0.75) 100%);
+      background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.4) 100%);
       opacity: 0;
       transition: opacity 0.4s;
     }
 
     .gal-item:hover::after { opacity: 1; }
-
     .gal-item:hover img { transform: scale(1.04); }
 
     .gal-item img {
@@ -863,14 +839,14 @@
       bottom: 1.25rem;
       left: 1.25rem;
       z-index: 2;
-      background: rgba(8,8,8,0.7);
+      background: rgba(255,255,255,0.90);
       backdrop-filter: blur(8px);
       border: 1px solid var(--border-h);
       border-radius: 100px;
       padding: 0.3rem 0.85rem;
       font-size: 0.72rem;
       font-weight: 600;
-      color: var(--white);
+      color: var(--black);
       opacity: 0;
       transform: translateY(6px);
       transition: opacity 0.35s, transform 0.35s;
@@ -880,12 +856,6 @@
       opacity: 1;
       transform: translateY(0);
     }
-
-    .g1 { grid-column: span 7; height: 360px; }
-    .g2 { grid-column: span 5; height: 360px; }
-    .g3 { grid-column: span 4; height: 280px; }
-    .g4 { grid-column: span 4; height: 280px; }
-    .g5 { grid-column: span 4; height: 280px; }
 
     /* ═══════════════════════════════════════════════
        PROMOCIONES
@@ -904,13 +874,13 @@
       position: relative;
       cursor: pointer;
       border: 1px solid var(--border);
-      transition: border-color 0.3s, transform 0.3s;
+      transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
     }
 
     .promo-card:hover {
       border-color: rgba(255,92,0,0.3);
       transform: translateY(-4px);
-      box-shadow: 0 30px 70px rgba(0,0,0,0.5);
+      box-shadow: 0 30px 70px rgba(0,0,0,0.10);
     }
 
     .promo-card img {
@@ -924,7 +894,7 @@
     .promo-card:hover img { transform: scale(1.03); }
 
     /* ═══════════════════════════════════════════════
-       CANVA BLOCK
+       CANVA PRO
     ═══════════════════════════════════════════════ */
     #canva { background: var(--bg-1); }
 
@@ -934,8 +904,6 @@
       gap: 5rem;
       align-items: center;
     }
-
-    .canva-content {}
 
     .canva-list {
       display: flex;
@@ -963,48 +931,45 @@
     }
 
     .canva-price {
-      display: inline-flex;
+      display: flex;
       align-items: baseline;
       gap: 0.35rem;
       margin-bottom: 2rem;
+      flex-wrap: wrap;
     }
 
     .cp-amount {
       font-family: var(--font-display);
       font-size: 3rem;
       font-weight: 700;
-      color: var(--white);
+      color: var(--black);
       letter-spacing: -0.04em;
       line-height: 1;
     }
 
     .cp-currency {
-      font-size: 1rem;
-      color: var(--gray-3);
-      font-weight: 400;
+      font-size: 1.1rem;
+      color: var(--gray-2);
+      font-weight: 500;
     }
 
     .cp-period {
       font-size: 0.8rem;
       color: var(--gray-3);
       align-self: flex-end;
-      padding-bottom: 0.3rem;
+      padding-bottom: 0.35rem;
     }
 
     .canva-img-wrap {
       border-radius: var(--radius-xl);
       overflow: hidden;
-      box-shadow: 0 0 0 1px var(--border), 0 40px 80px rgba(0,0,0,0.6), 0 0 80px var(--orange-soft);
+      box-shadow: 0 0 0 1px var(--border), 0 40px 80px rgba(0,0,0,0.12), 0 0 80px var(--orange-soft);
     }
 
-    .canva-img-wrap img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
+    .canva-img-wrap img { width: 100%; height: auto; display: block; }
 
     /* ═══════════════════════════════════════════════
-       PROCESS
+       PROCESO
     ═══════════════════════════════════════════════ */
     #proceso { background: var(--bg); }
 
@@ -1020,13 +985,12 @@
     }
 
     .process-step {
-      background: var(--bg-1);
+      background: var(--bg);
       padding: 2.5rem 2rem;
-      position: relative;
       transition: background 0.3s;
     }
 
-    .process-step:hover { background: var(--bg-2); }
+    .process-step:hover { background: var(--bg-1); }
 
     .ps-num {
       font-family: var(--font-display);
@@ -1044,20 +1008,20 @@
     .ps-title {
       font-size: 1rem;
       font-weight: 600;
-      color: var(--white);
+      color: var(--black);
       margin-bottom: 0.6rem;
       letter-spacing: -0.01em;
     }
 
     .ps-desc {
       font-size: 0.845rem;
-      color: var(--gray-3);
+      color: var(--gray-2);
       line-height: 1.7;
       font-weight: 300;
     }
 
     /* ═══════════════════════════════════════════════
-       TESTIMONIALS
+       TESTIMONIOS
     ═══════════════════════════════════════════════ */
     #testimonios { background: var(--bg-1); }
 
@@ -1069,21 +1033,19 @@
     }
 
     .testi-card {
-      background: var(--bg-2);
+      background: var(--bg);
       border: 1px solid var(--border);
       border-radius: var(--radius-lg);
       padding: 2rem;
-      transition: border-color 0.3s;
+      transition: border-color 0.3s, box-shadow 0.3s;
     }
 
-    .testi-card:hover { border-color: var(--border-h); }
-
-    .testi-stars {
-      display: flex;
-      gap: 3px;
-      margin-bottom: 1.25rem;
-      color: var(--orange);
+    .testi-card:hover {
+      border-color: rgba(255,92,0,0.2);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.06);
     }
+
+    .testi-stars { display: flex; gap: 3px; margin-bottom: 1.25rem; color: var(--orange); }
 
     .testi-quote {
       font-size: 0.9rem;
@@ -1094,17 +1056,13 @@
       margin-bottom: 1.75rem;
     }
 
-    .testi-author {
-      display: flex;
-      align-items: center;
-      gap: 0.85rem;
-    }
+    .testi-author { display: flex; align-items: center; gap: 0.85rem; }
 
     .ta-avatar {
       width: 40px; height: 40px;
       border-radius: 50%;
-      background: var(--surface);
-      border: 1px solid var(--border-h);
+      background: var(--bg-2);
+      border: 1.5px solid var(--border-h);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1115,17 +1073,8 @@
       flex-shrink: 0;
     }
 
-    .ta-name {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--white);
-    }
-
-    .ta-role {
-      font-size: 0.75rem;
-      color: var(--gray-3);
-      margin-top: 0.1rem;
-    }
+    .ta-name { font-size: 0.85rem; font-weight: 600; color: var(--black); }
+    .ta-role { font-size: 0.75rem; color: var(--gray-3); margin-top: 0.1rem; }
 
     /* ═══════════════════════════════════════════════
        CTA FINAL
@@ -1141,7 +1090,7 @@
       top: 50%; left: 50%;
       transform: translate(-50%, -50%);
       width: 700px; height: 400px;
-      background: radial-gradient(ellipse, rgba(255,92,0,0.08) 0%, transparent 70%);
+      background: radial-gradient(ellipse, rgba(255,92,0,0.06) 0%, transparent 70%);
       pointer-events: none;
     }
 
@@ -1159,18 +1108,15 @@
       font-weight: 700;
       line-height: 1.05;
       letter-spacing: -0.03em;
-      color: var(--white);
+      color: var(--black);
       margin-bottom: 1.25rem;
     }
 
-    .cta-title em {
-      font-style: italic;
-      color: var(--orange);
-    }
+    .cta-title em { font-style: italic; color: var(--orange); }
 
     .cta-sub {
       font-size: 1.05rem;
-      color: var(--gray-3);
+      color: var(--gray-2);
       line-height: 1.7;
       font-weight: 300;
       margin-bottom: 2.75rem;
@@ -1186,11 +1132,11 @@
     .cta-note {
       margin-top: 1.5rem;
       font-size: 0.78rem;
-      color: var(--gray-4);
+      color: var(--gray-3);
     }
 
     /* ═══════════════════════════════════════════════
-       FLOATING WSP BUTTON
+       FLOATING WSP
     ═══════════════════════════════════════════════ */
     .wsp-float {
       position: fixed;
@@ -1211,7 +1157,7 @@
       font-weight: 600;
       border-radius: 100px;
       text-decoration: none;
-      box-shadow: 0 8px 32px rgba(37,211,102,0.4);
+      box-shadow: 0 8px 32px rgba(37,211,102,0.35);
       transition: transform 0.25s, box-shadow 0.25s, background 0.2s;
       animation: wsp-bob 4s ease-in-out infinite;
       white-space: nowrap;
@@ -1220,7 +1166,7 @@
     .wsp-float-btn:hover {
       animation: none;
       transform: translateY(-3px) scale(1.04);
-      box-shadow: 0 16px 40px rgba(37,211,102,0.5);
+      box-shadow: 0 16px 40px rgba(37,211,102,0.45);
       background: #1db954;
     }
 
@@ -1236,7 +1182,7 @@
       margin: auto;
       width: 50px; height: 50px;
       border-radius: 50%;
-      background: rgba(37,211,102,0.22);
+      background: rgba(37,211,102,0.18);
       animation: wsp-ring 2.5s ease-out infinite;
       pointer-events: none;
     }
@@ -1263,43 +1209,15 @@
       gap: 1.5rem;
     }
 
-    .footer-brand {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-    }
+    .footer-brand { display: flex; align-items: center; gap: 0.6rem; }
+    .footer-brand img { height: 32px; width: auto; object-fit: contain; }
+    .footer-name { font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: var(--black); }
 
-    .footer-brand img {
-      height: 32px;
-      width: auto;
-      object-fit: contain;
-    }
+    .footer-links { display: flex; gap: 2rem; flex-wrap: wrap; }
+    .footer-links a { font-size: 0.8rem; color: var(--gray-3); transition: color 0.2s; }
+    .footer-links a:hover { color: var(--black); }
 
-    .footer-name {
-      font-family: var(--font-display);
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--white);
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 2rem;
-      flex-wrap: wrap;
-    }
-
-    .footer-links a {
-      font-size: 0.8rem;
-      color: var(--gray-3);
-      transition: color 0.2s;
-    }
-
-    .footer-links a:hover { color: var(--white); }
-
-    .footer-copy {
-      font-size: 0.75rem;
-      color: var(--gray-4);
-    }
+    .footer-copy { font-size: 0.75rem; color: var(--gray-4); }
 
     /* ═══════════════════════════════════════════════
        RESPONSIVE
@@ -1311,18 +1229,11 @@
     }
 
     @media (max-width: 768px) {
-      .nav-links,
-      .nav-actions .btn-outline { display: none; }
+      .nav-links, .nav-actions .btn-outline { display: none; }
       .hamburger { display: flex; }
 
-      .hero-inner {
-        grid-template-columns: 1fr;
-        padding: 4rem 0;
-        gap: 3rem;
-      }
-
+      .hero-inner { grid-template-columns: 1fr; padding: 4rem 0; gap: 3rem; }
       .hero-floating-card { display: none; }
-
       .hero-img-wrap img { height: 320px; }
 
       .services-layout { grid-template-columns: 1fr; }
@@ -1330,18 +1241,12 @@
 
       .benefits-grid { grid-template-columns: 1fr; }
 
-      .g1 { grid-column: span 12; }
-      .g2 { grid-column: span 12; }
-      .g3 { grid-column: span 12; }
-      .g4 { grid-column: span 12; }
-      .g5 { grid-column: span 12; }
+      .gallery-grid { grid-template-columns: 1fr; }
+      .gal-item { height: 260px; }
 
       .promo-grid { grid-template-columns: 1fr; }
-
       .canva-inner { grid-template-columns: 1fr; }
-
       .process-track { grid-template-columns: 1fr 1fr; }
-
       .testi-grid { grid-template-columns: 1fr; }
 
       .gallery-header { flex-direction: column; align-items: flex-start; }
@@ -1363,7 +1268,7 @@
 </head>
 <body>
 
-  <!-- ═══ NAV ═════════════════════════════════════ -->
+  <!-- ═══ NAV ════════════════════════════════════════ -->
   <nav id="nav">
     <div class="container">
       <a class="nav-logo" href="#">
@@ -1405,7 +1310,7 @@
     <a class="btn btn-primary" href="https://wa.me/56987689361?text=Hola%20me%20interesa%20una%20landing%20page" target="_blank">Cotizar ahora</a>
   </div>
 
-  <!-- ═══ HERO ══════════════════════════════════════ -->
+  <!-- ═══ HERO ════════════════════════════════════════ -->
   <section id="hero">
     <div class="hero-grid-bg"></div>
     <div class="hero-glow-1"></div>
@@ -1426,7 +1331,7 @@
           </h1>
 
           <p class="hero-sub">
-            Diseñamos landing pages de alta conversión para negocios en Chile. Estrategia, diseño profesional y tecnología entregados en 7 dias habiles.
+            Diseñamos landing pages de alta conversión para negocios en Chile. Estrategia, diseño profesional y tecnología entregados en 4 a 5 días hábiles.
           </p>
 
           <div class="hero-actions">
@@ -1445,7 +1350,7 @@
               <div class="stat-lbl">Proyectos<br>entregados</div>
             </div>
             <div>
-              <div class="stat-val">7<span>d</span></div>
+              <div class="stat-val">4–5<span>d</span></div>
               <div class="stat-lbl">Plazo de<br>entrega</div>
             </div>
             <div>
@@ -1458,7 +1363,7 @@
         <div class="hero-visual">
           <div class="hero-floating-card">
             <div class="fc-val">+80%</div>
-            <div class="fc-lbl">Mas conversiones</div>
+            <div class="fc-lbl">Más conversiones</div>
           </div>
 
           <div class="hero-img-wrap">
@@ -1472,7 +1377,7 @@
               <div class="hero-tag-dot"></div>
               <div class="hero-tag-text">
                 <strong>Disponible para tu negocio</strong>
-                Entrega en 7 dias habiles — incluye dominio y hosting
+                Entrega en 4–5 días hábiles — incluye dominio y hosting
               </div>
             </div>
           </div>
@@ -1482,10 +1387,10 @@
     </div>
   </section>
 
-  <!-- ═══ TICKER ════════════════════════════════════ -->
+  <!-- ═══ TICKER ═══════════════════════════════════════ -->
   <div class="ticker-wrap">
     <div class="ticker-track">
-      <div class="ticker-item">Diseno Web Profesional</div>
+      <div class="ticker-item">Diseño Web Profesional</div>
       <div class="ticker-item">Landing Pages</div>
       <div class="ticker-item">Marketing Digital Chile</div>
       <div class="ticker-item">SEO Local</div>
@@ -1493,9 +1398,8 @@
       <div class="ticker-item">Identidad Visual</div>
       <div class="ticker-item">Plantillas Canva Pro</div>
       <div class="ticker-item">Negocios Locales</div>
-      <div class="ticker-item">Alta Conversion</div>
-      <!-- duplicate -->
-      <div class="ticker-item">Diseno Web Profesional</div>
+      <div class="ticker-item">Alta Conversión</div>
+      <div class="ticker-item">Diseño Web Profesional</div>
       <div class="ticker-item">Landing Pages</div>
       <div class="ticker-item">Marketing Digital Chile</div>
       <div class="ticker-item">SEO Local</div>
@@ -1503,11 +1407,11 @@
       <div class="ticker-item">Identidad Visual</div>
       <div class="ticker-item">Plantillas Canva Pro</div>
       <div class="ticker-item">Negocios Locales</div>
-      <div class="ticker-item">Alta Conversion</div>
+      <div class="ticker-item">Alta Conversión</div>
     </div>
   </div>
 
-  <!-- ═══ SERVICIOS ═════════════════════════════════ -->
+  <!-- ═══ SERVICIOS ════════════════════════════════════ -->
   <section id="servicios" class="section">
     <div class="container">
       <div class="services-layout">
@@ -1516,36 +1420,36 @@
           <div class="section-header reveal">
             <span class="label">Servicios</span>
             <h2 class="section-title">Landing pages que <em>convierten</em> visitas en clientes.</h2>
-            <p class="section-sub">Cada elemento esta pensado con una intencion: que el visitante tome accion. No diseñamos por estetica, diseñamos para que tu negocio crezca.</p>
+            <p class="section-sub">Cada elemento está pensado con una intención: que el visitante tome acción. No diseñamos por estética, diseñamos para que tu negocio crezca.</p>
           </div>
 
-          <ul class="services-list">
+          <ul>
             <li class="service-item reveal">
               <span class="service-num">01</span>
               <div>
-                <div class="service-name">Diseno y desarrollo web</div>
-                <div class="service-desc">Paginas rapidas, modernas y optimizadas para celular. Codigo limpio con carga en menos de 2 segundos.</div>
+                <div class="service-name">Diseño y desarrollo web</div>
+                <div class="service-desc">Páginas rápidas, modernas y optimizadas para celular. Código limpio con carga en menos de 2 segundos.</div>
               </div>
             </li>
             <li class="service-item reveal">
               <span class="service-num">02</span>
               <div>
                 <div class="service-name">SEO local para Chile</div>
-                <div class="service-desc">Posicionamiento en Google Maps y busquedas locales. Tus clientes de la zona te encuentran primero.</div>
+                <div class="service-desc">Posicionamiento en Google Maps y búsquedas locales. Tus clientes de la zona te encuentran primero.</div>
               </div>
             </li>
             <li class="service-item reveal">
               <span class="service-num">03</span>
               <div>
-                <div class="service-name">Campanas Google Ads</div>
-                <div class="service-desc">Publicidad paga con presupuesto controlado. Resultados medibles desde el primer dia de lanzamiento.</div>
+                <div class="service-name">Publicidad paga con presupuesto controlado</div>
+                <div class="service-desc">Campañas de Google Ads optimizadas para el mercado chileno. Resultados medibles desde el primer día de lanzamiento.</div>
               </div>
             </li>
             <li class="service-item reveal">
               <span class="service-num">04</span>
               <div>
                 <div class="service-name">Identidad visual y marca</div>
-                <div class="service-desc">Logo, paleta, tipografia y guia de marca. Una presencia coherente que genera confianza inmediata.</div>
+                <div class="service-desc">Logo, paleta, tipografía y guía de marca. Una presencia coherente que genera confianza inmediata.</div>
               </div>
             </li>
           </ul>
@@ -1563,7 +1467,7 @@
             <div class="si-card si-card-main">
               <img
                 src="https://raw.githubusercontent.com/digitalmenteepro-cell/landing-pages-demo/refs/heads/main/IMG_7286.jpg"
-                alt="Trabajo realizado — diseno web"
+                alt="Trabajo realizado — diseño web"
                 loading="lazy"
               />
             </div>
@@ -1574,7 +1478,7 @@
                 loading="lazy"
               />
             </div>
-            <div class="si-badge">Diseno Profesional</div>
+            <div class="si-badge">Diseño Profesional</div>
           </div>
         </div>
 
@@ -1582,11 +1486,11 @@
     </div>
   </section>
 
-  <!-- ═══ BENEFICIOS ════════════════════════════════ -->
+  <!-- ═══ BENEFICIOS ═══════════════════════════════════ -->
   <section id="beneficios" class="section">
     <div class="container">
       <div class="section-header center reveal">
-        <span class="label">Por que elegirnos</span>
+        <span class="label">Por qué elegirnos</span>
         <h2 class="section-title">Resultados reales,<br>no solo buen diseño.</h2>
         <p class="section-sub">Trabajamos con negocios locales que quieren dejar de depender solo de redes sociales y empezar a recibir clientes desde Google.</p>
       </div>
@@ -1599,8 +1503,8 @@
               <path d="M2 7l8 5 8-5" stroke="currentColor" stroke-width="1.5"/>
             </svg>
           </div>
-          <div class="benefit-name">Entrega en 7 dias habiles</div>
-          <div class="benefit-desc">Primera version de tu pagina lista en una semana. Sin esperas de meses ni procesos burocraticos innecesarios.</div>
+          <div class="benefit-name">Entrega en 4 a 5 días hábiles</div>
+          <div class="benefit-desc">Primera versión de tu página lista en menos de una semana. Sin esperas de meses ni procesos burocráticos innecesarios.</div>
         </div>
         <div class="benefit-card reveal">
           <div class="benefit-icon">
@@ -1610,7 +1514,7 @@
             </svg>
           </div>
           <div class="benefit-name">Precio fijo y transparente</div>
-          <div class="benefit-desc">Sin cobros ocultos. Cotizacion detallada antes de comenzar. Presupuesto fijo, no por hora ni sorpresas al final.</div>
+          <div class="benefit-desc">Sin cobros ocultos. Cotización detallada antes de comenzar. Presupuesto fijo, no por hora ni sorpresas al final.</div>
         </div>
         <div class="benefit-card reveal">
           <div class="benefit-icon">
@@ -1620,7 +1524,7 @@
             </svg>
           </div>
           <div class="benefit-name">Optimizada para celular</div>
-          <div class="benefit-desc">Mas del 70% del trafico en Chile viene de smartphones. Tu pagina se vera perfecta en cualquier dispositivo.</div>
+          <div class="benefit-desc">Más del 70% del tráfico en Chile viene de smartphones. Tu página se verá perfecta en cualquier dispositivo.</div>
         </div>
         <div class="benefit-card reveal">
           <div class="benefit-icon">
@@ -1629,8 +1533,8 @@
               <rect x="2" y="2" width="16" height="16" rx="2" stroke="currentColor" stroke-width="1.5"/>
             </svg>
           </div>
-          <div class="benefit-name">Analitica de conversiones</div>
-          <div class="benefit-desc">Configuramos Google Analytics desde el primer dia. Sabes exactamente cuantas personas llegan y que hacen en tu pagina.</div>
+          <div class="benefit-name">Analítica de conversiones</div>
+          <div class="benefit-desc">Configuramos Google Analytics desde el primer día. Sabes exactamente cuántas personas llegan y qué hacen en tu página.</div>
         </div>
         <div class="benefit-card reveal">
           <div class="benefit-icon">
@@ -1640,7 +1544,7 @@
             </svg>
           </div>
           <div class="benefit-name">Soporte post-lanzamiento</div>
-          <div class="benefit-desc">No te dejamos solo despues de publicar. Revision de rendimiento al mes y ajustes incluidos en el precio.</div>
+          <div class="benefit-desc">No te dejamos solo después de publicar. Revisión de rendimiento al mes y ajustes incluidos en el precio.</div>
         </div>
         <div class="benefit-card reveal">
           <div class="benefit-icon">
@@ -1648,70 +1552,54 @@
               <path d="M10 2l2 6h6l-5 4 2 6-5-4-5 4 2-6L2 8h6l2-6z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
             </svg>
           </div>
-          <div class="benefit-name">Acceso total desde el dia uno</div>
-          <div class="benefit-desc">Eres dueno de todo: dominio, hosting y archivos. Sin dependencia de nuestra plataforma. Tu negocio, tus activos.</div>
+          <div class="benefit-name">Acceso total desde el día uno</div>
+          <div class="benefit-desc">Eres dueño de todo: dominio, hosting y archivos. Sin dependencia de nuestra plataforma. Tu negocio, tus activos.</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══ TRABAJOS ══════════════════════════════════ -->
+  <!-- ═══ TRABAJOS ═════════════════════════════════════ -->
   <section id="trabajos" class="section">
     <div class="container">
       <div class="gallery-header">
         <div class="reveal">
           <span class="label">Trabajos realizados</span>
-          <h2 class="section-title">Paginas que ya<br>estan <em>generando</em> clientes.</h2>
+          <h2 class="section-title">Páginas que ya están<br><em>generando</em> clientes.</h2>
         </div>
-        <p class="section-sub reveal">Cada proyecto adaptado al rubro, tono y publico de cada negocio. Sin plantillas genericas.</p>
+        <p class="section-sub reveal">Cada proyecto adaptado al rubro, tono y público de cada negocio. Sin plantillas genéricas.</p>
       </div>
 
       <div class="gallery-grid">
-        <div class="gal-item g1 reveal">
+        <div class="gal-item reveal">
           <img
             src="https://raw.githubusercontent.com/digitalmenteepro-cell/landing-pages-demo/refs/heads/main/IMG_7286.jpg"
-            alt="Proyecto — diseno web para negocio local"
+            alt="Proyecto — diseño web para negocio local"
             loading="lazy"
           />
           <span class="gal-label">Negocio local</span>
         </div>
-        <div class="gal-item g2 reveal">
+        <div class="gal-item reveal">
           <img
             src="https://raw.githubusercontent.com/digitalmenteepro-cell/landing-pages-demo/refs/heads/main/La%20Rd.PNG"
-            alt="Proyecto — landing page gastronomia"
+            alt="Proyecto — landing page gastronomía"
             loading="lazy"
           />
-          <span class="gal-label">Gastronomia</span>
+          <span class="gal-label">Gastronomía</span>
         </div>
-        <div class="gal-item g3 reveal">
+        <div class="gal-item reveal">
           <img
             src="https://raw.githubusercontent.com/digitalmenteepro-cell/landing-pages-demo/refs/heads/main/ChatGPT%20Image%2023%20may%202026%2C%2001_58_36%20p.m..png"
-            alt="Proyecto — diseno digital"
+            alt="Proyecto — diseño digital"
             loading="lazy"
           />
-          <span class="gal-label">Diseno digital</span>
-        </div>
-        <div class="gal-item g4 reveal">
-          <img
-            src="https://raw.githubusercontent.com/digitalmenteepro-cell/landing-pages-demo/refs/heads/main/ChatGPT%20Image%2023%20may%202026%2C%2011_03_25%20a.m..png"
-            alt="Proyecto — landing page premium"
-            loading="lazy"
-          />
-          <span class="gal-label">Landing premium</span>
-        </div>
-        <div class="gal-item g5 reveal">
-          <img
-            src="https://raw.githubusercontent.com/digitalmenteepro-cell/landing-pages-demo/refs/heads/main/A979BB4B-627C-428D-A54F-D0450B45A411.PNG"
-            alt="Proyecto — pagina de servicios"
-            loading="lazy"
-          />
-          <span class="gal-label">Servicios</span>
+          <span class="gal-label">Diseño digital</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══ PROMOCIONES ═══════════════════════════════ -->
+  <!-- ═══ PROMOCIONES ══════════════════════════════════ -->
   <section id="promociones" class="section">
     <div class="container">
       <div class="section-header center reveal">
@@ -1724,14 +1612,14 @@
         <div class="promo-card reveal">
           <img
             src="https://raw.githubusercontent.com/digitalmenteepro-cell/landing-pages-demo/refs/heads/main/66FEAD3B-F35F-42A3-B077-D2528F599BBC.PNG"
-            alt="Promocion — landing page con diseno incluido"
+            alt="Promoción — landing page con diseño incluido"
             loading="lazy"
           />
         </div>
         <div class="promo-card reveal">
           <img
-            src="https://raw.githubusercontent.com/digitalmenteepro-cell/landing-pages-demo/refs/heads/main/B47B36E2-0F42-40A9-9925-44CD51DEE3B5.PNG"
-            alt="Promocion — paquete de marketing digital"
+            src="https://raw.githubusercontent.com/digitalmenteepro-cell/landing-pages-demo/refs/heads/main/2A5F29EC-9AF1-4980-BF72-17D9E8C2DB0D.PNG"
+            alt="Promoción — paquete Canva Pro plantillas"
             loading="lazy"
           />
         </div>
@@ -1746,12 +1634,12 @@
     </div>
   </section>
 
-  <!-- ═══ CANVA PRO ═════════════════════════════════ -->
+  <!-- ═══ CANVA PRO ════════════════════════════════════ -->
   <section id="canva" class="section">
     <div class="container">
       <div class="canva-inner">
 
-        <div class="canva-content reveal">
+        <div class="reveal">
           <span class="label">Canva Pro</span>
           <h2 class="section-title">10 plantillas<br>profesionales <em>editables.</em></h2>
 
@@ -1762,7 +1650,7 @@
             </li>
             <li class="canva-list-item">
               <div class="cli-dot"></div>
-              Listas para usar desde el primer dia sin conocimientos de diseño
+              Listas para usar desde el primer día sin conocimientos de diseño
             </li>
             <li class="canva-list-item">
               <div class="cli-dot"></div>
@@ -1770,7 +1658,7 @@
             </li>
             <li class="canva-list-item">
               <div class="cli-dot"></div>
-              Incluye tutorial de edicion en video paso a paso
+              Incluye tutorial de edición en video paso a paso
             </li>
             <li class="canva-list-item">
               <div class="cli-dot"></div>
@@ -1780,8 +1668,8 @@
 
           <div class="canva-price">
             <span class="cp-currency">$</span>
-            <span class="cp-amount">9.990</span>
-            <span class="cp-period">CLP / pago unico</span>
+            <span class="cp-amount">19.990</span>
+            <span class="cp-period">CLP / pago único</span>
           </div>
 
           <a class="btn btn-primary" href="https://wa.me/56987689361?text=Hola%20me%20interesa%20una%20landing%20page" target="_blank">
@@ -1804,41 +1692,41 @@
     </div>
   </section>
 
-  <!-- ═══ PROCESO ═══════════════════════════════════ -->
+  <!-- ═══ PROCESO ══════════════════════════════════════ -->
   <section id="proceso" class="section">
     <div class="container">
       <div class="section-header center reveal">
-        <span class="label">Como trabajamos</span>
-        <h2 class="section-title">Claro, rapido<br>y <em>sin sorpresas.</em></h2>
-        <p class="section-sub">Un proceso probado que nos permite entregar paginas de alta calidad en menos de dos semanas. Tu sabes exactamente en que etapa esta tu proyecto.</p>
+        <span class="label">Cómo trabajamos</span>
+        <h2 class="section-title">Claro, rápido<br>y <em>sin sorpresas.</em></h2>
+        <p class="section-sub">Un proceso probado que nos permite entregar páginas de alta calidad en 4 a 5 días hábiles. Tú sabes exactamente en qué etapa está tu proyecto.</p>
       </div>
 
       <div class="process-track">
         <div class="process-step reveal">
           <div class="ps-num">01</div>
-          <div class="ps-title">Reunion inicial</div>
-          <div class="ps-desc">Conversamos sobre tu negocio, publico y metas. Sin formularios genericos: una llamada real de 30 minutos para entender tu contexto completo.</div>
+          <div class="ps-title">Reunión inicial</div>
+          <div class="ps-desc">Conversamos sobre tu negocio, público y metas. Sin formularios genéricos: una llamada real de 30 minutos para entender tu contexto completo.</div>
         </div>
         <div class="process-step reveal">
           <div class="ps-num">02</div>
           <div class="ps-title">Estrategia y estructura</div>
-          <div class="ps-desc">Definimos los mensajes clave, llamados a la accion y la arquitectura de la pagina. Presentamos propuesta antes de escribir codigo.</div>
+          <div class="ps-desc">Definimos los mensajes clave, llamados a la acción y la arquitectura de la página. Presentamos propuesta antes de escribir código.</div>
         </div>
         <div class="process-step reveal">
           <div class="ps-num">03</div>
-          <div class="ps-title">Diseno y desarrollo</div>
-          <div class="ps-desc">Construimos tu pagina con codigo limpio y optimizado. Dos rondas de ajustes incluidas para afinar cada detalle segun tu feedback.</div>
+          <div class="ps-title">Diseño y desarrollo</div>
+          <div class="ps-desc">Construimos tu página con código limpio y optimizado. Dos rondas de ajustes incluidas para afinar cada detalle según tu feedback.</div>
         </div>
         <div class="process-step reveal">
           <div class="ps-num">04</div>
           <div class="ps-title">Lanzamiento y seguimiento</div>
-          <div class="ps-desc">Publicamos y configuramos analitica. Al mes enviamos un informe de visitas y conversiones con recomendaciones concretas.</div>
+          <div class="ps-desc">Publicamos y configuramos analítica. Al mes enviamos un informe de visitas y conversiones con recomendaciones concretas.</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══ TESTIMONIOS ════════════════════════════════ -->
+  <!-- ═══ TESTIMONIOS ══════════════════════════════════ -->
   <section id="testimonios" class="section">
     <div class="container">
       <div class="section-header center reveal">
@@ -1855,12 +1743,12 @@
             <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor"><path d="M7 1l1.8 3.6 4 .6-2.9 2.8.7 4L7 10l-3.6 1.9.7-4L1.2 5.2l4-.6L7 1z"/></svg>
             <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor"><path d="M7 1l1.8 3.6 4 .6-2.9 2.8.7 4L7 10l-3.6 1.9.7-4L1.2 5.2l4-.6L7 1z"/></svg>
           </div>
-          <p class="testi-quote">"Antes tenia solo Instagram. Ahora mi pagina recibe consultas todos los dias. El proceso fue muy ordenado y en dos semanas ya estaba publicada. Vale cada peso."</p>
+          <p class="testi-quote">"Antes tenía solo Instagram. Ahora mi página recibe consultas todos los días. El proceso fue muy ordenado y en menos de una semana ya estaba publicada. Vale cada peso."</p>
           <div class="testi-author">
             <div class="ta-avatar">M</div>
             <div>
               <div class="ta-name">Marcela Torres</div>
-              <div class="ta-role">Centro de Estetica, Providencia</div>
+              <div class="ta-role">Centro de Estética, Providencia</div>
             </div>
           </div>
         </div>
@@ -1873,12 +1761,12 @@
             <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor"><path d="M7 1l1.8 3.6 4 .6-2.9 2.8.7 4L7 10l-3.6 1.9.7-4L1.2 5.2l4-.6L7 1z"/></svg>
             <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor"><path d="M7 1l1.8 3.6 4 .6-2.9 2.8.7 4L7 10l-3.6 1.9.7-4L1.2 5.2l4-.6L7 1z"/></svg>
           </div>
-          <p class="testi-quote">"Queria algo profesional sin pagar una fortuna. El resultado supero lo que esperaba. Diseno moderno, carga rapida y perfecta en el celular. Mis clientes la elogian."</p>
+          <p class="testi-quote">"Quería algo profesional sin pagar una fortuna. El resultado superó lo que esperaba. Diseño moderno, carga rápida y perfecta en el celular. Mis clientes la elogian."</p>
           <div class="testi-author">
             <div class="ta-avatar">R</div>
             <div>
               <div class="ta-name">Rodrigo Fuentes</div>
-              <div class="ta-role">Taller Mecanico, Maipu</div>
+              <div class="ta-role">Taller Mecánico, Maipú</div>
             </div>
           </div>
         </div>
@@ -1891,12 +1779,12 @@
             <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor"><path d="M7 1l1.8 3.6 4 .6-2.9 2.8.7 4L7 10l-3.6 1.9.7-4L1.2 5.2l4-.6L7 1z"/></svg>
             <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor"><path d="M7 1l1.8 3.6 4 .6-2.9 2.8.7 4L7 10l-3.6 1.9.7-4L1.2 5.2l4-.6L7 1z"/></svg>
           </div>
-          <p class="testi-quote">"Duplicamos las consultas el primer mes. Lo que mas valoro es que no nos dejaron solos despues del lanzamiento. Hubo seguimiento real y mejoras concretas."</p>
+          <p class="testi-quote">"Duplicamos las consultas el primer mes. Lo que más valoro es que no nos dejaron solos después del lanzamiento. Hubo seguimiento real y mejoras concretas."</p>
           <div class="testi-author">
             <div class="ta-avatar">V</div>
             <div>
-              <div class="ta-name">Valentina Rios</div>
-              <div class="ta-role">Clinica Dental, Las Condes</div>
+              <div class="ta-name">Valentina Ríos</div>
+              <div class="ta-role">Clínica Dental, Las Condes</div>
             </div>
           </div>
         </div>
@@ -1904,7 +1792,7 @@
     </div>
   </section>
 
-  <!-- ═══ CTA FINAL ═════════════════════════════════ -->
+  <!-- ═══ CTA FINAL ════════════════════════════════════ -->
   <section id="contacto" class="section">
     <div class="cta-bg-glow"></div>
     <div class="container">
@@ -1913,7 +1801,7 @@
           Tu negocio merece<br>estar <em>en Google.</em>
         </h2>
         <p class="cta-sub reveal">
-          La primera reunion es gratuita y sin compromiso. Cuéntanos en que etapa estas y te mostramos como podemos ayudarte.
+          La primera reunión es gratuita y sin compromiso. Cuéntanos en qué etapa estás y te mostramos cómo podemos ayudarte.
         </p>
         <div class="cta-actions reveal">
           <a class="btn btn-wsp" href="https://wa.me/56987689361?text=Hola%20me%20interesa%20una%20landing%20page" target="_blank">
@@ -1929,7 +1817,7 @@
     </div>
   </section>
 
-  <!-- ═══ FLOATING WSP ══════════════════════════════ -->
+  <!-- ═══ FLOATING WSP ═════════════════════════════════ -->
   <a class="wsp-float" href="https://wa.me/56987689361?text=Hola%20me%20interesa%20una%20landing%20page" target="_blank" aria-label="Contactar por WhatsApp">
     <span class="wsp-float-btn">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
@@ -1939,7 +1827,7 @@
     </span>
   </a>
 
-  <!-- ═══ FOOTER ═════════════════════════════════════ -->
+  <!-- ═══ FOOTER ════════════════════════════════════════ -->
   <footer>
     <div class="container">
       <div class="footer-inner">
@@ -1959,34 +1847,29 @@
           <li><a href="https://wa.me/56987689361?text=Hola%20me%20interesa%20una%20landing%20page" target="_blank">Contacto</a></li>
         </ul>
 
-        <span class="footer-copy">2025 Digitalmente Pro Chile &nbsp;·&nbsp; Santiago</span>
+        <span class="footer-copy">© 2025 Digitalmente Pro Chile &nbsp;·&nbsp; Santiago</span>
       </div>
     </div>
   </footer>
 
-  <!-- ═══════════════════════════════════════════════
-       JAVASCRIPT
-  ═══════════════════════════════════════════════ -->
+  <!-- ═══ JAVASCRIPT ════════════════════════════════════ -->
   <script>
-    // ─── Nav scroll ───────────────────────────────
+    // Nav scroll
     const nav = document.getElementById('nav');
-    const onScroll = () => {
-      nav.classList.toggle('scrolled', window.scrollY > 50);
-    };
+    const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 50);
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
 
-    // ─── Mobile menu ──────────────────────────────
-    const hamburger  = document.getElementById('hamburger');
-    const mobileNav  = document.getElementById('mobileNav');
-    const bars       = hamburger.querySelectorAll('span');
-    let menuOpen     = false;
+    // Mobile menu
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobileNav');
+    const bars = hamburger.querySelectorAll('span');
+    let menuOpen = false;
 
     hamburger.addEventListener('click', () => {
       menuOpen = !menuOpen;
       mobileNav.classList.toggle('open', menuOpen);
       document.body.style.overflow = menuOpen ? 'hidden' : '';
-
       if (menuOpen) {
         bars[0].style.transform = 'translateY(6.5px) rotate(45deg)';
         bars[1].style.opacity   = '0';
@@ -2003,13 +1886,11 @@
       bars.forEach(b => { b.style.transform = ''; b.style.opacity = ''; });
     }
 
-    // ─── Scroll reveal ────────────────────────────
+    // Scroll reveal
     const revealEls = document.querySelectorAll('.reveal');
-
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry, i) => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
-          // Stagger siblings
           const siblings = Array.from(entry.target.parentElement.querySelectorAll('.reveal'));
           const idx = siblings.indexOf(entry.target);
           entry.target.style.transitionDelay = `${Math.min(idx * 0.08, 0.32)}s`;
@@ -2021,16 +1902,14 @@
 
     revealEls.forEach(el => observer.observe(el));
 
-    // ─── Smooth anchor offset for fixed nav ───────
+    // Smooth anchor with offset
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', e => {
         const id = anchor.getAttribute('href').slice(1);
         const target = document.getElementById(id);
         if (!target) return;
         e.preventDefault();
-        const offset = 80;
-        const top = target.getBoundingClientRect().top + window.scrollY - offset;
-        window.scrollTo({ top, behavior: 'smooth' });
+        window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
       });
     });
   </script>
