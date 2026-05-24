@@ -3,1929 +3,1722 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Digitalmente Pro Chile — Diseño web, landing pages y marketing digital para negocios locales en Chile." />
-  <title>Digitalmente Pro Chile — Diseño Web & Landing Pages</title>
-
+  <title>Digitalmente Pro Chile — Landing Pages Profesionales</title>
+  <meta name="description" content="Hacemos que tu negocio se vea profesional en internet. Landing pages modernas, SEO básico, integración WhatsApp y dominio .cl incluido." />
+  <meta name="keywords" content="landing page chile, diseño web chile, presencia digital, página web profesional, marketing digital chile" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Instrument+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
 
   <style>
-    /* ═══════════════════════════════════════════════
-       RESET & ROOT
-    ═══════════════════════════════════════════════ */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; font-size: 16px; }
-
+    /* ─── TOKENS ────────────────────────────────────── */
     :root {
-      --bg:          #ffffff;
-      --bg-1:        #f8f7f5;
-      --bg-2:        #f2f0ec;
-      --bg-3:        #eceae6;
-      --surface:     #ffffff;
-      --border:      rgba(0,0,0,0.07);
-      --border-h:    rgba(0,0,0,0.14);
-
-      --black:       #0a0a0a;
-      --dark:        #1a1a1a;
-      --gray-1:      #2d2d2d;
-      --gray-2:      #555555;
-      --gray-3:      #888888;
-      --gray-4:      #bbbbbb;
-
-      --orange:      #FF5C00;
-      --orange-glow: rgba(255,92,0,0.15);
-      --orange-soft: rgba(255,92,0,0.07);
-      --sky:         #0080CC;
-      --sky-glow:    rgba(0,128,204,0.10);
-
-      --nav-h:       72px;
-      --radius-sm:   10px;
-      --radius:      16px;
-      --radius-lg:   24px;
-      --radius-xl:   32px;
-
-      --font-display: 'Playfair Display', Georgia, serif;
-      --font-body:    'Instrument Sans', system-ui, sans-serif;
-
-      --ease-out:    cubic-bezier(0.22, 1, 0.36, 1);
+      --orange:       #F05A24;
+      --orange-light: #FF7A45;
+      --orange-dim:   rgba(240,90,36,.10);
+      --black:        #0A0A0A;
+      --ink:          #141414;
+      --gray-900:     #1A1A1A;
+      --gray-700:     #3A3A3A;
+      --gray-500:     #6B6B6B;
+      --gray-300:     #C4C4C4;
+      --gray-100:     #F4F4F4;
+      --white:        #FFFFFF;
+      --radius-sm:    8px;
+      --radius-md:    14px;
+      --radius-lg:    22px;
+      --radius-xl:    32px;
+      --shadow-sm:    0 2px 8px rgba(0,0,0,.06);
+      --shadow-md:    0 8px 32px rgba(0,0,0,.10);
+      --shadow-lg:    0 20px 60px rgba(0,0,0,.15);
+      --trans:        all .25s cubic-bezier(.4,0,.2,1);
+      --font:         'Manrope', sans-serif;
+      --font-serif:   'Instrument Serif', serif;
     }
 
+    /* ─── RESET ─────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
-      font-family: var(--font-body);
-      background: var(--bg);
-      color: var(--gray-1);
-      overflow-x: hidden;
+      font-family: var(--font);
+      background: var(--white);
+      color: var(--ink);
+      line-height: 1.6;
       -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
     }
-
-    img { display: block; max-width: 100%; }
     a { text-decoration: none; color: inherit; }
-    ul { list-style: none; }
+    img { max-width: 100%; display: block; }
+    button { cursor: pointer; font-family: var(--font); }
 
-    ::-webkit-scrollbar { width: 3px; }
-    ::-webkit-scrollbar-track { background: var(--bg); }
-    ::-webkit-scrollbar-thumb { background: var(--gray-4); border-radius: 2px; }
-
-    /* ═══════════════════════════════════════════════
-       UTILITIES
-    ═══════════════════════════════════════════════ */
-    .container {
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 clamp(1.25rem, 5vw, 3.5rem);
+    /* ─── UTILITY ────────────────────────────────────── */
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+    .tag {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--orange-dim); color: var(--orange);
+      font-size: 12px; font-weight: 700; letter-spacing: .08em;
+      text-transform: uppercase; padding: 6px 14px;
+      border-radius: 100px; border: 1px solid rgba(240,90,36,.2);
     }
-
-    .label {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--orange);
-      margin-bottom: 1.25rem;
-    }
-
-    .label::before {
-      content: '';
-      display: block;
-      width: 20px; height: 1.5px;
-      background: var(--orange);
-    }
-
+    .tag::before { content: ''; width: 6px; height: 6px; background: var(--orange); border-radius: 50%; }
+    .section-label { text-align: center; margin-bottom: 16px; }
     .section-title {
-      font-family: var(--font-display);
-      font-size: clamp(2.2rem, 4.5vw, 3.6rem);
-      font-weight: 700;
-      line-height: 1.08;
-      letter-spacing: -0.02em;
-      color: var(--black);
+      font-size: clamp(28px, 4vw, 46px);
+      font-weight: 800; line-height: 1.15;
+      letter-spacing: -.02em; text-align: center;
+      margin-bottom: 16px;
     }
-
-    .section-title em {
-      font-style: italic;
-      color: var(--orange);
-    }
-
     .section-sub {
-      font-size: clamp(0.95rem, 1.5vw, 1.05rem);
-      font-weight: 300;
-      color: var(--gray-2);
-      line-height: 1.75;
-      max-width: 500px;
-      margin-top: 1rem;
+      font-size: clamp(15px, 2vw, 18px);
+      color: var(--gray-500); text-align: center;
+      max-width: 600px; margin: 0 auto 56px;
+      line-height: 1.7;
     }
-
-    /* reveal */
-    .reveal {
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 0.75s var(--ease-out), transform 0.75s var(--ease-out);
-    }
-    .reveal.in { opacity: 1; transform: translateY(0); }
-
-    /* ═══════════════════════════════════════════════
-       BUTTONS
-    ═══════════════════════════════════════════════ */
     .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.55rem;
-      font-family: var(--font-body);
-      font-size: 0.88rem;
-      font-weight: 600;
-      letter-spacing: 0.01em;
-      border: none;
-      border-radius: 100px;
-      cursor: pointer;
-      transition: transform 0.2s, box-shadow 0.2s, background 0.2s, color 0.2s;
-      white-space: nowrap;
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 28px; border-radius: var(--radius-md);
+      font-size: 15px; font-weight: 700;
+      transition: var(--trans); border: none; white-space: nowrap;
     }
-
     .btn-primary {
-      padding: 0.85rem 1.9rem;
-      background: var(--orange);
-      color: #fff;
+      background: var(--orange); color: var(--white);
+      box-shadow: 0 4px 20px rgba(240,90,36,.35);
     }
     .btn-primary:hover {
-      background: #e04d00;
-      transform: translateY(-2px);
-      box-shadow: 0 14px 40px rgba(255,92,0,0.30);
+      background: var(--orange-light);
+      box-shadow: 0 6px 28px rgba(240,90,36,.45);
+      transform: translateY(-1px);
+    }
+    .btn-ghost {
+      background: transparent; color: var(--ink);
+      border: 1.5px solid var(--gray-300);
+    }
+    .btn-ghost:hover {
+      border-color: var(--orange); color: var(--orange);
+      background: var(--orange-dim);
+    }
+    .btn-white {
+      background: var(--white); color: var(--orange);
+      box-shadow: 0 4px 20px rgba(0,0,0,.12);
+    }
+    .btn-white:hover {
+      background: var(--gray-100);
+      box-shadow: 0 6px 28px rgba(0,0,0,.18);
+      transform: translateY(-1px);
     }
 
-    .btn-outline {
-      padding: 0.82rem 1.9rem;
-      background: transparent;
-      color: var(--gray-1);
-      border: 1.5px solid var(--border-h);
+    /* ─── SCROLL REVEAL ──────────────────────────────── */
+    .reveal {
+      opacity: 0; transform: translateY(28px);
+      transition: opacity .65s ease, transform .65s ease;
     }
-    .btn-outline:hover {
-      border-color: var(--black);
-      color: var(--black);
-      transform: translateY(-2px);
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ─────────────────────────────────────────────────── */
+    /* HEADER                                              */
+    /* ─────────────────────────────────────────────────── */
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 0 24px;
+      transition: background .3s ease, box-shadow .3s ease;
     }
-
-    .btn-wsp {
-      padding: 0.85rem 1.9rem;
-      background: #25d366;
-      color: #fff;
+    header.scrolled {
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 1px 0 rgba(0,0,0,.06);
     }
-    .btn-wsp:hover {
-      background: #1db954;
-      transform: translateY(-2px);
-      box-shadow: 0 12px 36px rgba(37,211,102,0.30);
+    .header-inner {
+      max-width: 1120px; margin: 0 auto;
+      display: flex; align-items: center;
+      justify-content: space-between; height: 68px;
     }
-
-    .btn svg { flex-shrink: 0; }
-
-    /* ═══════════════════════════════════════════════
-       NAV
-    ═══════════════════════════════════════════════ */
-    #nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 200;
-      height: var(--nav-h);
-      display: flex;
-      align-items: center;
-      transition: background 0.4s, border-color 0.4s, box-shadow 0.4s;
-      border-bottom: 1px solid transparent;
-      background: rgba(255,255,255,0.5);
-      backdrop-filter: blur(20px) saturate(160%);
+    .logo {
+      font-size: 17px; font-weight: 800;
+      letter-spacing: -.02em; color: var(--ink);
     }
-
-    #nav.scrolled {
-      background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(24px) saturate(180%);
-      border-bottom-color: var(--border);
-      box-shadow: 0 2px 24px rgba(0,0,0,0.06);
+    .logo span { color: var(--orange); }
+    nav { display: flex; align-items: center; gap: 32px; }
+    nav a {
+      font-size: 14px; font-weight: 600; color: var(--gray-700);
+      transition: color .2s;
     }
-
-    #nav .container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .nav-logo {
-      display: flex;
-      align-items: center;
-      gap: 0.65rem;
-    }
-
-    .nav-logo img {
-      height: 38px;
-      width: auto;
-      object-fit: contain;
-    }
-
-    .nav-logo-text {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.2;
-    }
-
-    .nav-logo-name {
-      font-family: var(--font-display);
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--black);
-      letter-spacing: -0.01em;
-    }
-
-    .nav-logo-sub {
-      font-size: 0.65rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--gray-3);
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 2.25rem;
-    }
-
-    .nav-links a {
-      font-size: 0.83rem;
-      font-weight: 500;
-      color: var(--gray-2);
-      transition: color 0.2s;
-      letter-spacing: 0.01em;
-    }
-
-    .nav-links a:hover { color: var(--black); }
-
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-
+    nav a:hover { color: var(--orange); }
+    .header-cta { margin-left: 8px; }
     .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 4px;
+      display: none; flex-direction: column; gap: 5px;
+      background: none; border: none; padding: 4px;
     }
-
     .hamburger span {
-      display: block;
-      width: 22px;
-      height: 1.5px;
-      background: var(--gray-1);
-      border-radius: 2px;
-      transition: transform 0.3s, opacity 0.3s;
+      display: block; width: 22px; height: 2px;
+      background: var(--ink); border-radius: 2px;
+      transition: var(--trans);
     }
-
-    /* Mobile nav */
-    .mobile-nav {
-      display: none;
-      position: fixed;
-      inset: 0;
-      z-index: 190;
-      background: rgba(255,255,255,0.97);
-      backdrop-filter: blur(20px);
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 2.5rem;
+    .mobile-menu {
+      display: none; position: fixed; inset: 68px 0 0 0;
+      background: rgba(255,255,255,.97); backdrop-filter: blur(20px);
+      flex-direction: column; align-items: center; justify-content: center;
+      gap: 36px; z-index: 99;
     }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-size: 22px; font-weight: 700; color: var(--ink); }
+    .mobile-menu a:hover { color: var(--orange); }
 
-    .mobile-nav.open { display: flex; }
-
-    .mobile-nav a {
-      font-family: var(--font-display);
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: var(--black);
-      transition: color 0.2s;
-    }
-
-    .mobile-nav a:hover { color: var(--orange); }
-
-    /* ═══════════════════════════════════════════════
-       HERO
-    ═══════════════════════════════════════════════ */
+    /* ─────────────────────────────────────────────────── */
+    /* HERO                                                */
+    /* ─────────────────────────────────────────────────── */
     #hero {
-      min-height: 100svh;
-      display: flex;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
-      padding-top: var(--nav-h);
-      background: var(--bg);
+      min-height: 100vh;
+      background: var(--ink);
+      display: flex; align-items: center;
+      position: relative; overflow: hidden;
+      padding: 120px 24px 80px;
     }
-
-    .hero-grid-bg {
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px);
-      background-size: 80px 80px;
-      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
-      pointer-events: none;
+    .hero-bg {
+      position: absolute; inset: 0; pointer-events: none;
     }
-
-    .hero-glow-1 {
-      position: absolute;
-      top: -10%; right: -8%;
-      width: 700px; height: 700px;
-      background: radial-gradient(circle, rgba(255,92,0,0.07) 0%, transparent 65%);
-      pointer-events: none;
-      animation: float-glow 10s ease-in-out infinite alternate;
+    .hero-bg::before {
+      content: '';
+      position: absolute; top: -20%; right: -10%;
+      width: 70vw; height: 70vw; max-width: 800px; max-height: 800px;
+      background: radial-gradient(circle, rgba(240,90,36,.18) 0%, transparent 70%);
+      border-radius: 50%;
     }
-
-    .hero-glow-2 {
-      position: absolute;
-      bottom: 0; left: -10%;
-      width: 600px; height: 500px;
-      background: radial-gradient(circle, rgba(0,128,204,0.05) 0%, transparent 65%);
-      pointer-events: none;
-      animation: float-glow 13s ease-in-out infinite alternate-reverse;
+    .hero-bg::after {
+      content: '';
+      position: absolute; bottom: -10%; left: -5%;
+      width: 40vw; height: 40vw; max-width: 500px; max-height: 500px;
+      background: radial-gradient(circle, rgba(240,90,36,.08) 0%, transparent 70%);
+      border-radius: 50%;
     }
-
-    @keyframes float-glow {
-      from { transform: scale(1) translate(0,0); }
-      to   { transform: scale(1.12) translate(2%,-2%); }
+    /* noise grain */
+    .hero-grain {
+      position: absolute; inset: 0; pointer-events: none; opacity: .04;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-size: 200px;
     }
-
     .hero-inner {
-      position: relative;
-      z-index: 1;
-      width: 100%;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-      padding: 6rem 0;
+      max-width: 1120px; margin: 0 auto; width: 100%;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 64px;
+      align-items: center; position: relative; z-index: 1;
     }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(240,90,36,.15); border: 1px solid rgba(240,90,36,.3);
+      color: var(--orange); font-size: 12px; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      padding: 6px 14px; border-radius: 100px;
+      margin-bottom: 28px;
+    }
+    .hero-eyebrow::before { content: ''; width: 6px; height: 6px; background: var(--orange); border-radius: 50%; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:.4;} }
+    .hero-title {
+      font-size: clamp(34px, 5.5vw, 68px);
+      font-weight: 800; line-height: 1.08;
+      letter-spacing: -.03em; color: var(--white);
+      margin-bottom: 24px;
+    }
+    .hero-title em {
+      font-style: normal;
+      background: linear-gradient(135deg, var(--orange) 0%, #FF9B6A 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      font-size: clamp(16px, 2vw, 19px); color: rgba(255,255,255,.65);
+      line-height: 1.7; margin-bottom: 40px; max-width: 480px;
+    }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+    .hero-stats {
+      display: flex; gap: 36px; margin-top: 56px;
+      padding-top: 36px;
+      border-top: 1px solid rgba(255,255,255,.08);
+    }
+    .hero-stat-num {
+      font-size: 28px; font-weight: 800; color: var(--white);
+      letter-spacing: -.02em;
+    }
+    .hero-stat-num span { color: var(--orange); }
+    .hero-stat-label { font-size: 13px; color: rgba(255,255,255,.45); margin-top: 2px; }
+
+    /* Hero visual */
+    .hero-visual { position: relative; }
+    .hero-phone-wrap {
+      position: relative; display: flex; justify-content: center;
+    }
+    .hero-phone {
+      width: 260px;
+      background: #1C1C1C;
+      border-radius: 32px;
+      border: 2px solid rgba(255,255,255,.1);
+      overflow: hidden;
+      box-shadow: 0 40px 80px rgba(0,0,0,.5), 0 0 0 1px rgba(255,255,255,.05);
+      position: relative; z-index: 2;
+    }
+    .phone-notch {
+      height: 32px; background: #141414;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .phone-notch::after {
+      content: ''; width: 80px; height: 6px;
+      background: #0A0A0A; border-radius: 3px;
+    }
+    .phone-screen {
+      background: linear-gradient(160deg, #1C1C1C 0%, #141414 100%);
+      padding: 20px 16px;
+    }
+    .phone-mockup-header {
+      background: linear-gradient(135deg, var(--orange) 0%, #FF9B6A 100%);
+      border-radius: 12px; padding: 20px 16px; margin-bottom: 14px;
+    }
+    .phone-mockup-header h4 { color: white; font-size: 13px; font-weight: 800; }
+    .phone-mockup-header p { color: rgba(255,255,255,.75); font-size: 11px; margin-top: 4px; }
+    .phone-card {
+      background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.08);
+      border-radius: 10px; padding: 12px;
+      margin-bottom: 10px;
+    }
+    .phone-card-title { font-size: 11px; font-weight: 700; color: rgba(255,255,255,.85); }
+    .phone-card-sub { font-size: 10px; color: rgba(255,255,255,.4); margin-top: 2px; }
+    .phone-card-bar {
+      margin-top: 10px; height: 4px;
+      background: rgba(255,255,255,.06); border-radius: 2px; overflow: hidden;
+    }
+    .phone-card-bar-fill {
+      height: 100%; border-radius: 2px;
+      background: linear-gradient(90deg, var(--orange), #FF9B6A);
+    }
+    .phone-wa-btn {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      background: #25D366; border-radius: 10px;
+      padding: 12px; margin-top: 14px;
+      font-size: 12px; font-weight: 700; color: white;
+    }
+    .wa-icon { font-size: 16px; }
 
     .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.35rem 1rem;
-      border: 1.5px solid rgba(0,128,204,0.25);
-      border-radius: 100px;
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--sky);
-      background: rgba(0,128,204,0.05);
-      margin-bottom: 2rem;
-      opacity: 0;
-      animation: fadeUp 0.8s 0.1s var(--ease-out) forwards;
+      position: absolute; right: -20px; top: 30px;
+      background: var(--white); border-radius: var(--radius-md);
+      padding: 12px 16px;
+      box-shadow: var(--shadow-lg); z-index: 3;
     }
+    .hero-badge-label { font-size: 11px; color: var(--gray-500); font-weight: 600; }
+    .hero-badge-value { font-size: 16px; font-weight: 800; color: var(--ink); margin-top: 2px; }
+    .hero-badge-dot { width: 8px; height: 8px; background: #22C55E; border-radius: 50%; display: inline-block; margin-right: 6px; animation: pulse 2s infinite; }
 
-    .hero-badge-dot {
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      background: var(--sky);
-      animation: blink 2s infinite;
+    .hero-badge2 {
+      position: absolute; left: -24px; bottom: 60px;
+      background: var(--gray-900); border-radius: var(--radius-md);
+      padding: 10px 14px;
+      box-shadow: var(--shadow-lg); z-index: 3;
+      border: 1px solid rgba(255,255,255,.08);
     }
+    .hero-badge2-label { font-size: 10px; color: rgba(255,255,255,.5); font-weight: 600; }
+    .hero-badge2-value { font-size: 14px; font-weight: 800; color: var(--white); margin-top: 2px; }
 
-    @keyframes blink {
-      0%,100% { opacity:1; }
-      50%      { opacity:0.25; }
+    /* ─────────────────────────────────────────────────── */
+    /* PROBLEMA                                            */
+    /* ─────────────────────────────────────────────────── */
+    #problema {
+      padding: 100px 24px;
+      background: var(--gray-100);
     }
-
-    .hero-title {
-      font-family: var(--font-display);
-      font-size: clamp(2.8rem, 5.5vw, 5.2rem);
-      font-weight: 700;
-      line-height: 1.03;
-      letter-spacing: -0.03em;
-      color: var(--black);
-      margin-bottom: 1.75rem;
-      opacity: 0;
-      animation: fadeUp 0.9s 0.25s var(--ease-out) forwards;
+    .problema-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
     }
-
-    .hero-title em {
-      font-style: italic;
-      color: var(--orange);
-      display: block;
+    .problema-card {
+      background: var(--white); border-radius: var(--radius-lg);
+      padding: 28px 24px;
+      border: 1px solid rgba(0,0,0,.06);
+      box-shadow: var(--shadow-sm);
+      transition: var(--trans);
     }
-
-    .hero-sub {
-      font-size: clamp(1rem, 1.6vw, 1.15rem);
-      font-weight: 300;
-      color: var(--gray-2);
-      line-height: 1.75;
-      max-width: 480px;
-      margin-bottom: 2.75rem;
-      opacity: 0;
-      animation: fadeUp 0.9s 0.4s var(--ease-out) forwards;
+    .problema-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-3px);
     }
-
-    .hero-actions {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 0.85rem;
-      margin-bottom: 4rem;
-      opacity: 0;
-      animation: fadeUp 0.9s 0.55s var(--ease-out) forwards;
-    }
-
-    .hero-stats {
-      display: flex;
-      gap: 2.5rem;
-      flex-wrap: wrap;
-      padding-top: 2.5rem;
-      border-top: 1.5px solid var(--border);
-      opacity: 0;
-      animation: fadeUp 0.9s 0.7s var(--ease-out) forwards;
-    }
-
-    .stat-val {
-      font-family: var(--font-display);
-      font-size: 2.1rem;
-      font-weight: 700;
-      color: var(--black);
-      letter-spacing: -0.04em;
-      line-height: 1;
-    }
-
-    .stat-val span { color: var(--orange); }
-
-    .stat-lbl {
-      font-size: 0.75rem;
-      color: var(--gray-3);
-      margin-top: 0.3rem;
-      line-height: 1.4;
-    }
-
-    .hero-visual {
-      position: relative;
-      opacity: 0;
-      animation: fadeUp 1s 0.35s var(--ease-out) forwards;
-    }
-
-    .hero-img-wrap {
-      position: relative;
-      border-radius: var(--radius-xl);
-      overflow: hidden;
-      box-shadow:
-        0 0 0 1px var(--border),
-        0 40px 80px rgba(0,0,0,0.12),
-        0 0 60px rgba(255,92,0,0.05);
-    }
-
-    .hero-img-wrap img {
-      width: 100%;
-      height: 520px;
-      object-fit: cover;
-      display: block;
-    }
-
-    .hero-img-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, transparent 60%, rgba(255,255,255,0.3) 100%);
-    }
-
-    .hero-img-tag {
-      position: absolute;
-      bottom: 1.5rem;
-      left: 1.5rem;
-      right: 1.5rem;
-      background: rgba(255,255,255,0.90);
-      backdrop-filter: blur(12px);
-      border: 1px solid var(--border-h);
-      border-radius: var(--radius);
-      padding: 1rem 1.25rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .hero-tag-dot {
-      width: 10px; height: 10px;
-      border-radius: 50%;
-      background: #25d366;
-      flex-shrink: 0;
-      box-shadow: 0 0 8px rgba(37,211,102,0.6);
-      animation: blink 2s infinite;
-    }
-
-    .hero-tag-text {
-      flex: 1;
-      font-size: 0.8rem;
-      color: var(--gray-2);
-      line-height: 1.4;
-    }
-
-    .hero-tag-text strong {
-      display: block;
-      color: var(--black);
-      font-weight: 600;
-      font-size: 0.85rem;
-      margin-bottom: 0.15rem;
-    }
-
-    .hero-floating-card {
-      position: absolute;
-      top: 2rem;
-      right: -1.5rem;
-      background: var(--bg);
-      border: 1.5px solid var(--border-h);
-      border-radius: var(--radius);
-      padding: 0.9rem 1.1rem;
-      animation: float-card 6s ease-in-out infinite;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.10);
-    }
-
-    @keyframes float-card {
-      0%,100% { transform: translateY(0); }
-      50%      { transform: translateY(-8px); }
-    }
-
-    .fc-val {
-      font-family: var(--font-display);
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--black);
-      letter-spacing: -0.03em;
-    }
-
-    .fc-lbl {
-      font-size: 0.68rem;
-      color: var(--gray-3);
-      margin-top: 0.15rem;
-    }
-
-    @keyframes fadeUp {
-      from { opacity:0; transform:translateY(24px); }
-      to   { opacity:1; transform:translateY(0); }
-    }
-
-    /* ═══════════════════════════════════════════════
-       MARQUEE / TICKER
-    ═══════════════════════════════════════════════ */
-    .ticker-wrap {
-      overflow: hidden;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      padding: 1rem 0;
-      background: var(--bg-1);
-    }
-
-    .ticker-track {
-      display: flex;
-      gap: 3rem;
-      animation: ticker 28s linear infinite;
-      width: max-content;
-    }
-
-    .ticker-item {
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--gray-3);
-      white-space: nowrap;
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-    }
-
-    .ticker-item::after {
-      content: '';
-      display: inline-block;
-      width: 4px; height: 4px;
-      border-radius: 50%;
-      background: var(--orange);
-    }
-
-    @keyframes ticker {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
-    }
-
-    /* ═══════════════════════════════════════════════
-       SECTION BASE
-    ═══════════════════════════════════════════════ */
-    .section {
-      padding: clamp(5rem, 10vw, 9rem) 0;
-    }
-
-    .section-header {
-      margin-bottom: clamp(3rem, 6vw, 5rem);
-    }
-
-    .section-header.center { text-align: center; }
-    .section-header.center .label { justify-content: center; }
-    .section-header.center .section-sub { margin: 1rem auto 0; }
-
-    /* ═══════════════════════════════════════════════
-       SERVICIOS (LANDING PAGES)
-    ═══════════════════════════════════════════════ */
-    #servicios { background: var(--bg-1); }
-
-    .services-layout {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
-      align-items: center;
-    }
-
-    .service-item {
-      display: flex;
-      gap: 1.5rem;
-      padding: 1.75rem 0;
-      border-bottom: 1px solid var(--border);
-      transition: padding-left 0.3s var(--ease-out);
-      cursor: default;
-    }
-
-    .service-item:first-child { padding-top: 0; }
-    .service-item:last-child { border-bottom: none; }
-    .service-item:hover { padding-left: 0.5rem; }
-
-    .service-num {
-      font-family: var(--font-display);
-      font-size: 0.75rem;
-      color: var(--gray-4);
-      padding-top: 0.2rem;
-      flex-shrink: 0;
-      width: 28px;
-    }
-
-    .service-name {
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--black);
-      margin-bottom: 0.35rem;
-      letter-spacing: -0.01em;
-    }
-
-    .service-desc {
-      font-size: 0.855rem;
-      color: var(--gray-2);
-      line-height: 1.65;
-      font-weight: 300;
-    }
-
-    .services-visual { position: relative; }
-
-    .services-img-stack {
-      position: relative;
-      height: 520px;
-    }
-
-    .si-card {
-      position: absolute;
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      box-shadow: 0 30px 70px rgba(0,0,0,0.15);
-      border: 1px solid var(--border-h);
-    }
-
-    .si-card-main {
-      width: 80%; top: 0; right: 0; height: 340px;
-    }
-
-    .si-card-main img { width: 100%; height: 100%; object-fit: cover; }
-
-    .si-card-sub {
-      width: 65%; bottom: 0; left: 0; height: 230px;
-    }
-
-    .si-card-sub img { width: 100%; height: 100%; object-fit: cover; }
-
-    .si-badge {
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      background: var(--orange);
-      color: #fff;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 0.45rem 1rem;
-      border-radius: 100px;
-      white-space: nowrap;
-      box-shadow: 0 8px 24px rgba(255,92,0,0.35);
-      z-index: 10;
-    }
-
-    /* ═══════════════════════════════════════════════
-       BENEFICIOS
-    ═══════════════════════════════════════════════ */
-    #beneficios { background: var(--bg); }
-
-    .benefits-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-    }
-
-    .benefit-card {
-      background: var(--bg);
-      padding: 2.5rem;
-      position: relative;
-      overflow: hidden;
-      transition: background 0.3s;
-    }
-
-    .benefit-card::after {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--orange), transparent);
-      opacity: 0;
-      transition: opacity 0.4s;
-    }
-
-    .benefit-card:hover { background: var(--bg-1); }
-    .benefit-card:hover::after { opacity: 1; }
-
-    .benefit-icon {
+    .problema-icon {
       width: 44px; height: 44px;
-      border-radius: var(--radius-sm);
-      background: var(--orange-soft);
-      border: 1px solid rgba(255,92,0,0.15);
-      display: flex;
+      background: #FEF2F2; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px; margin-bottom: 16px;
+    }
+    .problema-card h3 {
+      font-size: 15px; font-weight: 700; color: var(--ink);
+      margin-bottom: 8px;
+    }
+    .problema-card p { font-size: 14px; color: var(--gray-500); line-height: 1.6; }
+
+    /* ─────────────────────────────────────────────────── */
+    /* SOLUCIÓN                                            */
+    /* ─────────────────────────────────────────────────── */
+    #solucion { padding: 100px 24px; background: var(--white); }
+    .solucion-inner {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
       align-items: center;
-      justify-content: center;
-      color: var(--orange);
-      margin-bottom: 1.5rem;
     }
-
-    .benefit-name {
-      font-size: 1.05rem;
-      font-weight: 600;
-      color: var(--black);
-      margin-bottom: 0.6rem;
-      letter-spacing: -0.01em;
+    .solucion-list { list-style: none; display: flex; flex-direction: column; gap: 18px; }
+    .solucion-item {
+      display: flex; align-items: flex-start; gap: 16px;
+      padding: 20px; background: var(--gray-100);
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(0,0,0,.04);
+      transition: var(--trans);
     }
-
-    .benefit-desc {
-      font-size: 0.855rem;
-      color: var(--gray-2);
-      line-height: 1.7;
-      font-weight: 300;
+    .solucion-item:hover { background: var(--orange-dim); border-color: rgba(240,90,36,.2); }
+    .solucion-check {
+      width: 32px; height: 32px; min-width: 32px;
+      background: var(--orange); border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      color: white; font-size: 15px; font-weight: 800;
     }
-
-    /* ═══════════════════════════════════════════════
-       TRABAJOS / GALERÍA
-    ═══════════════════════════════════════════════ */
-    #trabajos { background: var(--bg-1); }
-
-    .gallery-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      flex-wrap: wrap;
-      gap: 2rem;
-      margin-bottom: clamp(3rem,6vw,5rem);
+    .solucion-item-text h4 { font-size: 14px; font-weight: 700; color: var(--ink); }
+    .solucion-item-text p { font-size: 13px; color: var(--gray-500); margin-top: 3px; }
+    .solucion-visual {
+      background: linear-gradient(145deg, var(--ink) 0%, #1A1A1A 100%);
+      border-radius: var(--radius-xl); padding: 40px 32px;
+      position: relative; overflow: hidden;
+      box-shadow: var(--shadow-lg);
     }
-
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.25rem;
-    }
-
-    .gal-item {
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      position: relative;
-      cursor: pointer;
-      background: var(--bg-2);
-      height: 320px;
-    }
-
-    .gal-item::after {
+    .solucion-visual::before {
       content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.4) 100%);
-      opacity: 0;
-      transition: opacity 0.4s;
-    }
-
-    .gal-item:hover::after { opacity: 1; }
-    .gal-item:hover img { transform: scale(1.04); }
-
-    .gal-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.6s var(--ease-out);
-    }
-
-    .gal-label {
-      position: absolute;
-      bottom: 1.25rem;
-      left: 1.25rem;
-      z-index: 2;
-      background: rgba(255,255,255,0.90);
-      backdrop-filter: blur(8px);
-      border: 1px solid var(--border-h);
-      border-radius: 100px;
-      padding: 0.3rem 0.85rem;
-      font-size: 0.72rem;
-      font-weight: 600;
-      color: var(--black);
-      opacity: 0;
-      transform: translateY(6px);
-      transition: opacity 0.35s, transform 0.35s;
-    }
-
-    .gal-item:hover .gal-label {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* ═══════════════════════════════════════════════
-       PROMOCIONES
-    ═══════════════════════════════════════════════ */
-    #promociones { background: var(--bg); }
-
-    .promo-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.25rem;
-    }
-
-    .promo-grid-3 {
-      grid-template-columns: repeat(3, 1fr);
-    }
-
-    .promo-card {
-      border-radius: var(--radius-xl);
-      overflow: hidden;
-      position: relative;
-      cursor: pointer;
-      border: 1px solid var(--border);
-      transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
-    }
-
-    .promo-card:hover {
-      border-color: rgba(255,92,0,0.3);
-      transform: translateY(-4px);
-      box-shadow: 0 30px 70px rgba(0,0,0,0.10);
-    }
-
-    .promo-card img {
-      width: 100%;
-      height: 420px;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.6s var(--ease-out);
-    }
-
-    .promo-card:hover img { transform: scale(1.03); }
-
-    /* ═══════════════════════════════════════════════
-       CANVA PRO
-    ═══════════════════════════════════════════════ */
-    #canva { background: var(--bg-1); }
-
-    .canva-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
-      align-items: center;
-    }
-
-    .canva-list {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      margin: 2rem 0 2.5rem;
-    }
-
-    .canva-list-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.85rem;
-      font-size: 0.9rem;
-      color: var(--gray-2);
-      line-height: 1.55;
-    }
-
-    .cli-dot {
-      width: 6px; height: 6px;
+      position: absolute; top: -30%; right: -20%;
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(240,90,36,.2) 0%, transparent 70%);
       border-radius: 50%;
-      background: var(--orange);
-      margin-top: 0.45rem;
-      flex-shrink: 0;
-      box-shadow: 0 0 8px var(--orange-glow);
+    }
+    .sv-tag { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--orange); margin-bottom: 16px; }
+    .sv-title { font-size: 24px; font-weight: 800; color: var(--white); line-height: 1.2; margin-bottom: 24px; letter-spacing: -.01em; }
+    .sv-metric {
+      background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.08);
+      border-radius: 12px; padding: 16px 18px; margin-bottom: 10px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .sv-metric-label { font-size: 13px; color: rgba(255,255,255,.55); }
+    .sv-metric-value { font-size: 18px; font-weight: 800; color: var(--white); }
+    .sv-metric-value.good { color: #4ADE80; }
+    .sv-metric-value.orange { color: var(--orange); }
+
+    /* ─────────────────────────────────────────────────── */
+    /* BENEFICIOS                                          */
+    /* ─────────────────────────────────────────────────── */
+    #beneficios { padding: 100px 24px; background: var(--gray-100); }
+    .beneficios-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .benefit-card {
+      background: var(--white); border-radius: var(--radius-lg);
+      padding: 32px 28px;
+      border: 1px solid rgba(0,0,0,.06);
+      box-shadow: var(--shadow-sm);
+      transition: var(--trans);
+      position: relative; overflow: hidden;
+    }
+    .benefit-card::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+      height: 3px; background: linear-gradient(90deg, var(--orange), var(--orange-light));
+      transform: scaleX(0); transform-origin: left;
+      transition: transform .35s ease;
+    }
+    .benefit-card:hover { box-shadow: var(--shadow-md); transform: translateY(-4px); }
+    .benefit-card:hover::after { transform: scaleX(1); }
+    .benefit-icon {
+      width: 52px; height: 52px;
+      background: var(--orange-dim); border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 26px; margin-bottom: 20px;
+    }
+    .benefit-card h3 { font-size: 17px; font-weight: 800; color: var(--ink); margin-bottom: 10px; }
+    .benefit-card p { font-size: 14px; color: var(--gray-500); line-height: 1.7; }
+
+    /* ─────────────────────────────────────────────────── */
+    /* GALERÍA / MOCKUPS                                   */
+    /* ─────────────────────────────────────────────────── */
+    #galeria { padding: 100px 24px; background: var(--white); }
+    .galeria-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    .galeria-card {
+      border-radius: var(--radius-lg); overflow: hidden;
+      position: relative; cursor: pointer;
+      box-shadow: var(--shadow-sm);
+      transition: var(--trans);
+    }
+    .galeria-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+    .galeria-browser {
+      background: #E8E8E8; padding: 10px 12px;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .galeria-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .galeria-dot:nth-child(1) { background: #FF5F57; }
+    .galeria-dot:nth-child(2) { background: #FEBC2E; }
+    .galeria-dot:nth-child(3) { background: #28C840; }
+    .galeria-url {
+      flex: 1; background: white; border-radius: 6px;
+      padding: 4px 10px; font-size: 11px; color: var(--gray-500);
+      margin-left: 8px;
+    }
+    .galeria-screen {
+      height: 220px; display: flex; flex-direction: column;
+      position: relative; overflow: hidden;
+    }
+    .galeria-tag {
+      position: absolute; bottom: 14px; left: 14px;
+      background: rgba(0,0,0,.7); backdrop-filter: blur(8px);
+      color: white; font-size: 12px; font-weight: 700;
+      padding: 6px 12px; border-radius: 100px;
     }
 
-    .canva-price {
-      display: flex;
-      align-items: baseline;
-      gap: 0.35rem;
-      margin-bottom: 2rem;
-      flex-wrap: wrap;
+    /* Individual mock screens */
+    .screen-restaurant {
+      background: linear-gradient(160deg, #1A0A00 0%, #2D1200 50%, #1A0A00 100%);
     }
-
-    .cp-amount {
-      font-family: var(--font-display);
-      font-size: 3rem;
-      font-weight: 700;
-      color: var(--black);
-      letter-spacing: -0.04em;
-      line-height: 1;
-    }
-
-    .cp-currency {
-      font-size: 1.1rem;
-      color: var(--gray-2);
-      font-weight: 500;
-    }
-
-    .cp-period {
-      font-size: 0.8rem;
-      color: var(--gray-3);
-      align-self: flex-end;
-      padding-bottom: 0.35rem;
-    }
-
-    .canva-img-wrap {
-      border-radius: var(--radius-xl);
+    .screen-restaurant .mock-hero-img {
+      position: absolute; inset: 0;
+      background: linear-gradient(160deg, #3D1F00 0%, #1A0A00 100%);
       overflow: hidden;
-      box-shadow: 0 0 0 1px var(--border), 0 40px 80px rgba(0,0,0,0.12), 0 0 80px var(--orange-soft);
     }
-
-    .canva-img-wrap img { width: 100%; height: auto; display: block; }
-
-    /* ═══════════════════════════════════════════════
-       PROCESO
-    ═══════════════════════════════════════════════ */
-    #proceso { background: var(--bg); }
-
-    .process-track {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.5px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      margin-top: clamp(3rem,6vw,5rem);
-    }
-
-    .process-step {
-      background: var(--bg);
-      padding: 2.5rem 2rem;
-      transition: background 0.3s;
-    }
-
-    .process-step:hover { background: var(--bg-1); }
-
-    .ps-num {
-      font-family: var(--font-display);
-      font-size: 3rem;
-      font-weight: 700;
-      color: var(--bg-3);
-      line-height: 1;
-      letter-spacing: -0.04em;
-      margin-bottom: 1.5rem;
-      transition: color 0.3s;
-    }
-
-    .process-step:hover .ps-num { color: var(--orange); }
-
-    .ps-title {
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--black);
-      margin-bottom: 0.6rem;
-      letter-spacing: -0.01em;
-    }
-
-    .ps-desc {
-      font-size: 0.845rem;
-      color: var(--gray-2);
-      line-height: 1.7;
-      font-weight: 300;
-    }
-
-    /* ═══════════════════════════════════════════════
-       TESTIMONIOS
-    ═══════════════════════════════════════════════ */
-    #testimonios { background: var(--bg-1); }
-
-    .testi-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.25rem;
-      margin-top: clamp(3rem,6vw,5rem);
-    }
-
-    .testi-card {
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 2rem;
-      transition: border-color 0.3s, box-shadow 0.3s;
-    }
-
-    .testi-card:hover {
-      border-color: rgba(255,92,0,0.2);
-      box-shadow: 0 12px 40px rgba(0,0,0,0.06);
-    }
-
-    .testi-stars { display: flex; gap: 3px; margin-bottom: 1.25rem; color: var(--orange); }
-
-    .testi-quote {
-      font-size: 0.9rem;
-      color: var(--gray-2);
-      line-height: 1.75;
-      font-weight: 300;
-      font-style: italic;
-      margin-bottom: 1.75rem;
-    }
-
-    .testi-author { display: flex; align-items: center; gap: 0.85rem; }
-
-    .ta-avatar {
-      width: 40px; height: 40px;
+    .screen-restaurant .mock-plate {
+      position: absolute; right: -20px; top: 10px;
+      width: 140px; height: 140px;
+      background: radial-gradient(circle at 40% 40%, #C97A30 0%, #7A3F10 60%, #3D1F00 100%);
       border-radius: 50%;
-      background: var(--bg-2);
-      border: 1.5px solid var(--border-h);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--font-display);
-      font-size: 1rem;
-      color: var(--orange);
-      font-weight: 700;
-      flex-shrink: 0;
+      box-shadow: inset 0 0 20px rgba(0,0,0,.5);
     }
-
-    .ta-name { font-size: 0.85rem; font-weight: 600; color: var(--black); }
-    .ta-role { font-size: 0.75rem; color: var(--gray-3); margin-top: 0.1rem; }
-
-    /* ═══════════════════════════════════════════════
-       CTA FINAL
-    ═══════════════════════════════════════════════ */
-    #contacto {
-      background: var(--bg);
-      position: relative;
-      overflow: hidden;
+    .screen-restaurant .mock-content {
+      position: absolute; left: 16px; bottom: 16px;
     }
-
-    .cta-bg-glow {
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      width: 700px; height: 400px;
-      background: radial-gradient(ellipse, rgba(255,92,0,0.06) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
-    .cta-inner {
-      position: relative;
-      z-index: 1;
-      max-width: 700px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .cta-title {
-      font-family: var(--font-display);
-      font-size: clamp(2.5rem, 5vw, 4.5rem);
-      font-weight: 700;
-      line-height: 1.05;
-      letter-spacing: -0.03em;
-      color: var(--black);
-      margin-bottom: 1.25rem;
-    }
-
-    .cta-title em { font-style: italic; color: var(--orange); }
-
-    .cta-sub {
-      font-size: 1.05rem;
-      color: var(--gray-2);
-      line-height: 1.7;
-      font-weight: 300;
-      margin-bottom: 2.75rem;
-    }
-
-    .cta-actions {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    .cta-note {
-      margin-top: 1.5rem;
-      font-size: 0.78rem;
-      color: var(--gray-3);
-    }
-
-    /* ═══════════════════════════════════════════════
-       FLOATING WSP
-    ═══════════════════════════════════════════════ */
-    .wsp-float {
-      position: fixed;
-      bottom: 2rem;
-      right: 2rem;
-      z-index: 300;
-    }
-
-    .wsp-float-btn {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      padding: 0.75rem 1.4rem 0.75rem 1rem;
-      background: #25d366;
-      color: #fff;
-      font-family: var(--font-body);
-      font-size: 0.83rem;
-      font-weight: 600;
+    .screen-restaurant .mock-title { font-size: 14px; font-weight: 800; color: white; letter-spacing: -.01em; }
+    .screen-restaurant .mock-sub { font-size: 11px; color: rgba(255,255,255,.6); margin-top: 2px; }
+    .screen-restaurant .mock-btn {
+      display: inline-block; margin-top: 10px;
+      background: #C97A30; color: white;
+      font-size: 10px; font-weight: 700; padding: 5px 12px;
       border-radius: 100px;
-      text-decoration: none;
-      box-shadow: 0 8px 32px rgba(37,211,102,0.35);
-      transition: transform 0.25s, box-shadow 0.25s, background 0.2s;
-      animation: wsp-bob 4s ease-in-out infinite;
+    }
+
+    .screen-barber { background: linear-gradient(160deg, #0F0F0F 0%, #1C1C1C 100%); }
+    .screen-barber .mock-stripes {
+      position: absolute; top: 0; right: 30px; width: 20px; height: 100%;
+      background: repeating-linear-gradient(180deg, #E63946 0px, #E63946 20px, white 20px, white 40px, #1A1A1A 40px, #1A1A1A 60px);
+      border-radius: 0 0 4px 4px;
+    }
+    .screen-barber .mock-content { position: absolute; left: 16px; top: 20px; }
+    .screen-barber .mock-title { font-size: 13px; font-weight: 800; color: white; text-transform: uppercase; letter-spacing: .06em; }
+    .screen-barber .mock-rating { font-size: 11px; color: #F5C518; margin-top: 4px; }
+    .screen-barber .mock-address { font-size: 10px; color: rgba(255,255,255,.4); margin-top: 4px; }
+    .screen-barber .mock-divider { width: 24px; height: 2px; background: var(--orange); margin: 8px 0; }
+
+    .screen-hotel { background: linear-gradient(160deg, #0D1B2A 0%, #172A3A 100%); }
+    .screen-hotel .mock-img {
+      position: absolute; top: 0; right: 0; bottom: 0;
+      width: 55%;
+      background: linear-gradient(180deg, #1E3A4A 0%, #0D1B2A 100%);
+      clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+    }
+    .screen-hotel .mock-stars { position: absolute; right: 20px; top: 20px; font-size: 12px; color: #F5C518; letter-spacing: 2px; }
+    .screen-hotel .mock-content { position: absolute; left: 16px; top: 20px; }
+    .screen-hotel .mock-label { font-size: 9px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #C9A84C; }
+    .screen-hotel .mock-title { font-size: 18px; font-weight: 800; color: white; line-height: 1.2; margin-top: 6px; font-style: italic; }
+    .screen-hotel .mock-price { font-size: 11px; color: rgba(255,255,255,.5); margin-top: 20px; }
+    .screen-hotel .mock-price span { color: #C9A84C; font-weight: 700; }
+
+    .screen-cafe { background: linear-gradient(160deg, #F5EDD9 0%, #EDD9B0 100%); }
+    .screen-cafe .mock-circle {
+      position: absolute; right: -30px; top: -30px;
+      width: 160px; height: 160px;
+      background: #C47A3A; border-radius: 50%;
+      opacity: .2;
+    }
+    .screen-cafe .mock-circle2 {
+      position: absolute; right: 20px; top: 20px;
+      width: 80px; height: 80px;
+      background: radial-gradient(circle, #5C3B1A 0%, #2D1A08 100%);
+      border-radius: 50%;
+      box-shadow: 0 4px 20px rgba(92,59,26,.3);
+    }
+    .screen-cafe .mock-content { position: absolute; left: 16px; bottom: 16px; }
+    .screen-cafe .mock-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: #8B6A30; }
+    .screen-cafe .mock-title { font-size: 16px; font-weight: 800; color: #2D1A08; margin-top: 4px; line-height: 1.2; }
+    .screen-cafe .mock-tagline { font-size: 11px; color: #8B6A30; margin-top: 4px; }
+
+    .screen-empresa { background: linear-gradient(160deg, #F8F9FA 0%, #EEF0F2 100%); }
+    .screen-empresa .mock-sidebar {
+      position: absolute; left: 0; top: 0; bottom: 0; width: 40px;
+      background: linear-gradient(180deg, var(--orange) 0%, #FF7A45 100%);
+    }
+    .screen-empresa .mock-logo {
+      position: absolute; left: 56px; top: 20px;
+      width: 32px; height: 32px;
+      background: var(--ink); border-radius: 8px;
+    }
+    .screen-empresa .mock-content { position: absolute; left: 56px; top: 64px; }
+    .screen-empresa .mock-title { font-size: 13px; font-weight: 800; color: var(--ink); }
+    .screen-empresa .mock-sub { font-size: 11px; color: var(--gray-500); margin-top: 3px; }
+    .screen-empresa .mock-bar { margin-top: 12px; }
+    .screen-empresa .mock-bar-item { height: 6px; background: #E0E0E0; border-radius: 3px; margin-bottom: 6px; }
+    .screen-empresa .mock-bar-item:nth-child(1) { width: 80%; }
+    .screen-empresa .mock-bar-item:nth-child(2) { width: 60%; }
+    .screen-empresa .mock-bar-item:nth-child(3) { width: 70%; }
+    .screen-empresa .mock-btn-sm {
+      position: absolute; right: 16px; bottom: 16px;
+      background: var(--orange); color: white;
+      font-size: 10px; font-weight: 700; padding: 6px 14px;
+      border-radius: 100px;
+    }
+
+    /* ─────────────────────────────────────────────────── */
+    /* PLAN / PRECIO                                       */
+    /* ─────────────────────────────────────────────────── */
+    #plan { padding: 100px 24px; background: var(--ink); position: relative; overflow: hidden; }
+    #plan::before {
+      content: '';
+      position: absolute; top: -20%; left: 50%;
+      transform: translateX(-50%);
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(240,90,36,.12) 0%, transparent 70%);
+      border-radius: 50%; pointer-events: none;
+    }
+    #plan .section-title { color: var(--white); }
+    #plan .section-sub { color: rgba(255,255,255,.5); }
+    .plan-card-wrap { display: flex; justify-content: center; }
+    .plan-card {
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: var(--radius-xl);
+      padding: 48px 48px 40px;
+      max-width: 560px; width: 100%;
+      position: relative; backdrop-filter: blur(20px);
+      box-shadow: 0 0 0 1px rgba(240,90,36,.15), 0 40px 80px rgba(0,0,0,.4);
+    }
+    .plan-badge-top {
+      position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+      background: linear-gradient(135deg, var(--orange), var(--orange-light));
+      color: white; font-size: 12px; font-weight: 800;
+      letter-spacing: .06em; text-transform: uppercase;
+      padding: 7px 20px; border-radius: 100px;
       white-space: nowrap;
+      box-shadow: 0 4px 16px rgba(240,90,36,.4);
     }
-
-    .wsp-float-btn:hover {
-      animation: none;
-      transform: translateY(-3px) scale(1.04);
-      box-shadow: 0 16px 40px rgba(37,211,102,0.45);
-      background: #1db954;
+    .plan-name {
+      font-size: 13px; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--orange); margin-bottom: 12px;
     }
-
-    @keyframes wsp-bob {
-      0%,100% { transform: translateY(0); }
-      50%      { transform: translateY(-5px); }
+    .plan-price-wrap { margin-bottom: 8px; }
+    .plan-price {
+      font-size: 58px; font-weight: 800; color: var(--white);
+      letter-spacing: -.03em; line-height: 1;
     }
-
-    .wsp-float::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      margin: auto;
-      width: 50px; height: 50px;
-      border-radius: 50%;
-      background: rgba(37,211,102,0.18);
-      animation: wsp-ring 2.5s ease-out infinite;
-      pointer-events: none;
+    .plan-price-iva {
+      font-size: 14px; color: rgba(255,255,255,.4); margin-left: 4px;
     }
-
-    @keyframes wsp-ring {
-      0%   { transform: scale(0.85); opacity: 0.8; }
-      100% { transform: scale(2.2);  opacity: 0; }
+    .plan-price-note {
+      font-size: 13px; color: rgba(255,255,255,.45); margin-bottom: 36px;
     }
-
-    /* ═══════════════════════════════════════════════
-       FOOTER
-    ═══════════════════════════════════════════════ */
-    footer {
-      background: var(--bg-1);
-      border-top: 1px solid var(--border);
-      padding: 3rem 0;
+    .plan-divider { height: 1px; background: rgba(255,255,255,.08); margin-bottom: 28px; }
+    .plan-features { list-style: none; display: flex; flex-direction: column; gap: 14px; margin-bottom: 36px; }
+    .plan-feature {
+      display: flex; align-items: center; gap: 14px;
+      font-size: 15px; color: rgba(255,255,255,.8);
     }
+    .plan-feature-check {
+      width: 22px; height: 22px; min-width: 22px;
+      background: rgba(240,90,36,.2); border: 1px solid rgba(240,90,36,.35);
+      border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--orange); font-size: 12px; font-weight: 800;
+    }
+    .plan-guarantee {
+      display: flex; align-items: center; gap: 10px;
+      padding: 14px 16px;
+      background: rgba(255,255,255,.04); border-radius: var(--radius-md);
+      border: 1px solid rgba(255,255,255,.06);
+      margin-top: 16px;
+    }
+    .plan-guarantee-icon { font-size: 20px; }
+    .plan-guarantee-text { font-size: 13px; color: rgba(255,255,255,.5); }
+    .plan-guarantee-text strong { color: rgba(255,255,255,.8); }
 
-    .footer-inner {
-      display: flex;
+    /* ─────────────────────────────────────────────────── */
+    /* CONFIANZA                                           */
+    /* ─────────────────────────────────────────────────── */
+    #confianza { padding: 100px 24px; background: var(--white); }
+    .confianza-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
       align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1.5rem;
     }
-
-    .footer-brand { display: flex; align-items: center; gap: 0.6rem; }
-    .footer-brand img { height: 32px; width: auto; object-fit: contain; }
-    .footer-name { font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: var(--black); }
-
-    .footer-links { display: flex; gap: 2rem; flex-wrap: wrap; }
-    .footer-links a { font-size: 0.8rem; color: var(--gray-3); transition: color 0.2s; }
-    .footer-links a:hover { color: var(--black); }
-
-    .footer-copy { font-size: 0.75rem; color: var(--gray-4); }
-
-    /* ═══════════════════════════════════════════════
-       RESPONSIVE
-    ═══════════════════════════════════════════════ */
-    @media (max-width: 1024px) {
-      .benefits-grid { grid-template-columns: repeat(2, 1fr); }
-      .process-track { grid-template-columns: repeat(2, 1fr); }
-      .testi-grid    { grid-template-columns: repeat(2, 1fr); }
+    .confianza-text h2 {
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 800; line-height: 1.12;
+      letter-spacing: -.02em; margin-bottom: 24px;
     }
+    .confianza-text h2 em {
+      font-style: italic; font-family: var(--font-serif);
+      color: var(--orange);
+    }
+    .confianza-text p { font-size: 16px; color: var(--gray-500); line-height: 1.8; margin-bottom: 20px; }
+    .confianza-pillars { display: flex; flex-direction: column; gap: 16px; }
+    .confianza-pillar {
+      display: flex; gap: 16px; align-items: flex-start;
+      padding: 18px 20px;
+      background: var(--gray-100); border-radius: var(--radius-md);
+      transition: var(--trans);
+    }
+    .confianza-pillar:hover { background: var(--orange-dim); }
+    .confianza-pillar-num {
+      font-size: 22px; font-weight: 800; color: var(--orange);
+      min-width: 32px; line-height: 1;
+    }
+    .confianza-pillar-content h4 { font-size: 14px; font-weight: 700; color: var(--ink); }
+    .confianza-pillar-content p { font-size: 13px; color: var(--gray-500); margin-top: 3px; }
 
-    @media (max-width: 768px) {
-      .nav-links, .nav-actions .btn-outline { display: none; }
+    /* ─────────────────────────────────────────────────── */
+    /* TESTIMONIOS                                         */
+    /* ─────────────────────────────────────────────────── */
+    #testimonios { padding: 100px 24px; background: var(--gray-100); }
+    .testimonios-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .testimonio-card {
+      background: var(--white); border-radius: var(--radius-lg);
+      padding: 28px; border: 1px solid rgba(0,0,0,.06);
+      box-shadow: var(--shadow-sm);
+      transition: var(--trans);
+    }
+    .testimonio-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
+    .testimonio-stars { color: #F5C518; font-size: 14px; letter-spacing: 2px; margin-bottom: 14px; }
+    .testimonio-text {
+      font-size: 15px; color: var(--gray-700);
+      line-height: 1.7; margin-bottom: 20px;
+      font-style: italic;
+    }
+    .testimonio-text::before { content: '\201C'; font-size: 28px; color: var(--orange); line-height: 0; vertical-align: -10px; margin-right: 4px; }
+    .testimonio-author { display: flex; align-items: center; gap: 12px; }
+    .testimonio-avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; font-weight: 800; color: white;
+      flex-shrink: 0;
+    }
+    .testimonio-name { font-size: 14px; font-weight: 700; color: var(--ink); }
+    .testimonio-biz { font-size: 12px; color: var(--gray-500); }
+
+    /* ─────────────────────────────────────────────────── */
+    /* FAQ                                                 */
+    /* ─────────────────────────────────────────────────── */
+    #faq { padding: 100px 24px; background: var(--white); }
+    .faq-list { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px; }
+    .faq-item {
+      background: var(--gray-100); border-radius: var(--radius-md);
+      border: 1px solid rgba(0,0,0,.04);
+      overflow: hidden;
+    }
+    .faq-question {
+      width: 100%; text-align: left;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px 22px; background: none; border: none;
+      font-size: 15px; font-weight: 700; color: var(--ink);
+      cursor: pointer; gap: 16px;
+      transition: background .2s;
+    }
+    .faq-question:hover { background: var(--orange-dim); }
+    .faq-icon {
+      width: 28px; height: 28px; min-width: 28px;
+      background: var(--white); border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px; font-weight: 800; color: var(--orange);
+      transition: var(--trans); border: 1px solid rgba(0,0,0,.06);
+    }
+    .faq-item.open .faq-icon { background: var(--orange); color: white; transform: rotate(45deg); }
+    .faq-answer {
+      max-height: 0; overflow: hidden;
+      transition: max-height .4s cubic-bezier(0,.8,.2,1), padding .3s ease;
+      padding: 0 22px;
+    }
+    .faq-answer.open { padding: 0 22px 20px; max-height: 200px; }
+    .faq-answer p { font-size: 14px; color: var(--gray-500); line-height: 1.7; }
+
+    /* ─────────────────────────────────────────────────── */
+    /* CTA FINAL                                           */
+    /* ─────────────────────────────────────────────────── */
+    #cta-final {
+      padding: 120px 24px;
+      background: linear-gradient(135deg, var(--ink) 0%, #1F1009 100%);
+      position: relative; overflow: hidden; text-align: center;
+    }
+    #cta-final::before {
+      content: '';
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%,-50%);
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(240,90,36,.18) 0%, transparent 65%);
+      border-radius: 50%; pointer-events: none;
+    }
+    .cta-final-inner { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+    .cta-final-inner h2 {
+      font-size: clamp(32px, 5vw, 58px); font-weight: 800;
+      color: var(--white); line-height: 1.1;
+      letter-spacing: -.03em; margin-bottom: 20px;
+    }
+    .cta-final-inner h2 em {
+      font-style: italic; font-family: var(--font-serif);
+      color: var(--orange);
+    }
+    .cta-final-inner p {
+      font-size: 18px; color: rgba(255,255,255,.55);
+      line-height: 1.7; margin-bottom: 48px;
+    }
+    .cta-final-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .btn-wa {
+      background: #25D366; color: white;
+      padding: 16px 32px; font-size: 16px; font-weight: 800;
+      border-radius: var(--radius-md);
+      box-shadow: 0 4px 24px rgba(37,211,102,.35);
+      transition: var(--trans);
+      display: inline-flex; align-items: center; gap: 10px;
+    }
+    .btn-wa:hover {
+      background: #20B858;
+      box-shadow: 0 6px 32px rgba(37,211,102,.5);
+      transform: translateY(-2px);
+    }
+    .cta-trust {
+      display: flex; justify-content: center; gap: 32px;
+      margin-top: 48px; flex-wrap: wrap;
+    }
+    .cta-trust-item {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 13px; color: rgba(255,255,255,.4);
+    }
+    .cta-trust-item::before { content: '✓'; color: var(--orange); font-weight: 800; }
+
+    /* WhatsApp flotante */
+    .wa-float {
+      position: fixed; bottom: 28px; right: 28px; z-index: 200;
+      width: 56px; height: 56px;
+      background: #25D366; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 26px;
+      box-shadow: 0 4px 20px rgba(37,211,102,.5);
+      transition: var(--trans);
+      text-decoration: none;
+    }
+    .wa-float:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37,211,102,.65); }
+    .wa-float-pulse {
+      position: absolute; inset: -4px;
+      border-radius: 50%; border: 2px solid rgba(37,211,102,.4);
+      animation: wa-pulse 2.5s infinite;
+    }
+    @keyframes wa-pulse { 0%{transform:scale(1);opacity:1;} 100%{transform:scale(1.6);opacity:0;} }
+
+    /* ─────────────────────────────────────────────────── */
+    /* FOOTER                                              */
+    /* ─────────────────────────────────────────────────── */
+    footer {
+      background: #0A0A0A;
+      padding: 40px 24px;
+      border-top: 1px solid rgba(255,255,255,.06);
+    }
+    .footer-inner {
+      max-width: 1120px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 20px;
+    }
+    .footer-logo { font-size: 16px; font-weight: 800; color: var(--white); }
+    .footer-logo span { color: var(--orange); }
+    .footer-links { display: flex; gap: 28px; }
+    .footer-links a { font-size: 13px; color: rgba(255,255,255,.4); transition: color .2s; }
+    .footer-links a:hover { color: var(--orange); }
+    .footer-copy { font-size: 12px; color: rgba(255,255,255,.25); }
+
+    /* ─────────────────────────────────────────────────── */
+    /* RESPONSIVE                                          */
+    /* ─────────────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      nav, .header-cta { display: none; }
       .hamburger { display: flex; }
-
-      .hero-inner { grid-template-columns: 1fr; padding: 4rem 0; gap: 3rem; }
-      .hero-floating-card { display: none; }
-      .hero-img-wrap img { height: 320px; }
-
-      .services-layout { grid-template-columns: 1fr; }
-      .services-visual { display: none; }
-
-      .benefits-grid { grid-template-columns: 1fr; }
-
-      .gallery-grid { grid-template-columns: 1fr; }
-      .gal-item { height: 260px; }
-
-      .promo-grid { grid-template-columns: 1fr; }
-      .promo-grid-3 { grid-template-columns: 1fr; }
-      .canva-inner { grid-template-columns: 1fr; }
-      .process-track { grid-template-columns: 1fr 1fr; }
-      .testi-grid { grid-template-columns: 1fr; }
-
-      .gallery-header { flex-direction: column; align-items: flex-start; }
-
-      .wsp-float-btn span { display: none; }
-      .wsp-float-btn { padding: 1rem; border-radius: 50%; }
-      .wsp-float { bottom: 1.5rem; right: 1.5rem; }
-
-      footer .footer-inner { flex-direction: column; text-align: center; }
-      .footer-links { justify-content: center; }
+      .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+      .hero-visual { display: flex; justify-content: center; }
+      .hero-phone { width: 220px; }
+      .hero-badge { right: 0; }
+      .hero-badge2 { left: 0; }
+      .solucion-inner { grid-template-columns: 1fr; gap: 40px; }
+      .confianza-grid { grid-template-columns: 1fr; gap: 48px; }
+      .footer-inner { flex-direction: column; align-items: center; text-align: center; }
+      .footer-links { flex-wrap: wrap; justify-content: center; }
     }
 
-    @media (max-width: 480px) {
-      .process-track { grid-template-columns: 1fr; }
-      .hero-stats { gap: 1.5rem; }
-      .promo-card img { height: 280px; }
+    @media (max-width: 600px) {
+      .hero-stats { flex-wrap: wrap; gap: 20px; }
+      .plan-card { padding: 36px 24px 28px; }
+      .plan-price { font-size: 46px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- ═══ NAV ════════════════════════════════════════ -->
-  <nav id="nav">
-    <div class="container">
-      <a class="nav-logo" href="#">
-        <img
-          src="https://raw.githubusercontent.com/digitalmenteepro-cell/landing-pages-demo/refs/heads/main/ChatGPT%20Image%2023%20may%202026%2C%2011_53_49%20a.m..png"
-          alt="Digitalmente Pro Chile"
-          onerror="this.style.display='none'"
-        />
-        <div class="nav-logo-text">
-          <span class="nav-logo-name">Digitalmente Pro</span>
-          <span class="nav-logo-sub">Chile</span>
-        </div>
-      </a>
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- HEADER                                                  -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<header id="header">
+  <div class="header-inner">
+    <a href="#" class="logo">Digitalmente<span>Pro</span> Chile</a>
 
-      <ul class="nav-links">
-        <li><a href="#servicios">Servicios</a></li>
-        <li><a href="#trabajos">Trabajos</a></li>
-        <li><a href="#promociones">Promociones</a></li>
-        <li><a href="#proceso">Proceso</a></li>
-      </ul>
+    <nav>
+      <a href="#servicios">Servicios</a>
+      <a href="#galeria">Portfolio</a>
+      <a href="#plan">Precios</a>
+      <a href="#faq">FAQ</a>
+    </nav>
 
-      <div class="nav-actions">
-        <a class="btn btn-outline" href="#servicios">Ver servicios</a>
-        <a class="btn btn-primary" href="https://wa.me/56987689361?text=Hola%20me%20interesa%20una%20landing%20page" target="_blank">Cotizar ahora</a>
-      </div>
+    <a href="https://wa.me/56987689361?text=Hola,%20me%20interesa%20una%20landing%20page%20profesional"
+       target="_blank" class="btn btn-primary header-cta">
+      ✦ Escríbenos
+    </a>
 
-      <button class="hamburger" id="hamburger" aria-label="Menú">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
-
-  <!-- Mobile nav -->
-  <div class="mobile-nav" id="mobileNav">
-    <a href="#servicios"   onclick="closeMobile()">Servicios</a>
-    <a href="#trabajos"    onclick="closeMobile()">Trabajos</a>
-    <a href="#promociones" onclick="closeMobile()">Promociones</a>
-    <a href="#proceso"     onclick="closeMobile()">Proceso</a>
-    <a class="btn btn-primary" href="https://wa.me/56987689361?text=Hola%20me%20interesa%20una%20landing%20page" target="_blank">Cotizar ahora</a>
+    <button class="hamburger" id="hamburger" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
   </div>
+</header>
 
-  <!-- ═══ HERO ════════════════════════════════════════ -->
-  <section id="hero">
-    <div class="hero-grid-bg"></div>
-    <div class="hero-glow-1"></div>
-    <div class="hero-glow-2"></div>
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#servicios" onclick="closeMobile()">Servicios</a>
+  <a href="#galeria" onclick="closeMobile()">Portfolio</a>
+  <a href="#plan" onclick="closeMobile()">Precios</a>
+  <a href="#faq" onclick="closeMobile()">FAQ</a>
+  <a href="https://wa.me/56987689361?text=Hola,%20me%20interesa%20una%20landing%20page%20profesional"
+     target="_blank" class="btn btn-primary">✦ Escríbenos</a>
+</div>
 
-    <div class="container">
-      <div class="hero-inner">
 
-        <div class="hero-content">
-          <div class="hero-badge">
-            <span class="hero-badge-dot"></span>
-            Disponible para proyectos
-          </div>
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- HERO                                                    -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grain"></div>
 
-          <h1 class="hero-title">
-            Tu negocio local
-            <em>visible en internet.</em>
-          </h1>
-
-          <p class="hero-sub">
-            Diseñamos landing pages de alta conversión para negocios en Chile. Estrategia, diseño profesional y tecnología entregados en 4 a 5 días hábiles.
-          </p>
-
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="https://wa.me/56987689361?text=Hola%20me%20interesa%20una%20landing%20page" target="_blank">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-              </svg>
-              Cotizar por WhatsApp
-            </a>
-            <a class="btn btn-outline" href="#trabajos">Ver trabajos</a>
-          </div>
-
-          <div class="hero-stats">
-            <div>
-              <div class="stat-val">+60<span></span></div>
-              <div class="stat-lbl">Proyectos<br>entregados</div>
-            </div>
-            <div>
-              <div class="stat-val">4–5<span>d</span></div>
-              <div class="stat-lbl">Plazo de<br>entrega</div>
-            </div>
-            <div>
-              <div class="stat-val">3<span>x</span></div>
-              <div class="stat-lbl">ROI promedio<br>reportado</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="hero-visual">
-          <div class="hero-floating-card">
-            <div class="fc-val">+80%</div>
-            <div class="fc-lbl">Más conversiones</div>
-          </div>
-
-          <div class="hero-img-wrap">
-            <img
-              src="https://raw.githubusercontent.com/digitalmenteepro-cell/landing-pages-demo/refs/heads/main/ChatGPT%20Image%2023%20may%202026%2C%2011_03_25%20a.m..png"
-              alt="Landing page profesional para negocios chilenos"
-              loading="eager"
-            />
-            <div class="hero-img-overlay"></div>
-            <div class="hero-img-tag">
-              <div class="hero-tag-dot"></div>
-              <div class="hero-tag-text">
-                <strong>Disponible para tu negocio</strong>
-                Entrega en 4–5 días hábiles — incluye dominio y hosting
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ TICKER ═══════════════════════════════════════ -->
-  <div class="ticker-wrap">
-    <div class="ticker-track">
-      <div class="ticker-item">Diseño Web Profesional</div>
-      <div class="ticker-item">Landing Pages</div>
-      <div class="ticker-item">Marketing Digital Chile</div>
-      <div class="ticker-item">SEO Local</div>
-      <div class="ticker-item">Google Ads</div>
-      <div class="ticker-item">Identidad Visual</div>
-      <div class="ticker-item">Plantillas Canva Pro</div>
-      <div class="ticker-item">Negocios Locales</div>
-      <div class="ticker-item">Alta Conversión</div>
-      <div class="ticker-item">Diseño Web Profesional</div>
-      <div class="ticker-item">Landing Pages</div>
-      <div class="ticker-item">Marketing Digital Chile</div>
-      <div class="ticker-item">SEO Local</div>
-      <div class="ticker-item">Google Ads</div>
-      <div class="ticker-item">Identidad Visual</div>
-      <div class="ticker-item">Plantillas Canva Pro</div>
-      <div class="ticker-item">Negocios Locales</div>
-      <div class="ticker-item">Alta Conversión</div>
-    </div>
-  </div>
-
-  <!-- ═══ SERVICIOS ════════════════════════════════════ -->
-  <section id="servicios" class="section">
-    <div class="container">
-      <div class="services-layout">
-
-        <div>
-          <div class="section-header reveal">
-            <span class="label">Servicios</span>
-            <h2 class="section-title">Landing pages que <em>convierten</em> visitas en clientes.</h2>
-            <p class="section-sub">Cada elemento está pensado con una intención: que el visitante tome acción. No diseñamos por estética, diseñamos para que tu negocio crezca.</p>
-          </div>
-
-          <ul>
-            <li class="service-item reveal">
-              <span class="service-num">01</span>
-              <div>
-                <div class="service-name">Diseño y desarrollo web</div>
-                <div class="service-desc">Páginas rápidas, modernas y optimizadas para celular. Código limpio con carga en menos de 2 segundos.</div>
-              </div>
-            </li>
-            <li class="service-item reveal">
-              <span class="service-num">02</span>
-              <div>
-                <div class="service-name">SEO local para Chile</div>
-                <div class="service-desc">Posicionamiento en Google Maps y búsquedas locales. Tus clientes de la zona te encuentran primero.</div>
-              </div>
-            </li>
-            <li class="service-item reveal">
-              <span class="service-num">03</span>
-              <div>
-                <div class="service-name">Publicidad paga con presupuesto controlado</div>
-                <div class="service-desc">Campañas de Google Ads optimizadas para el mercado chileno. Resultados medibles desde el primer día de lanzamiento.</div>
-              </div>
-            </li>
-            <li class="service-item reveal">
-              <span class="service-num">04</span>
-              <div>
-                <div class="service-name">Identidad visual y marca</div>
-                <div class="service-desc">Logo, paleta, tipografía y guía de marca. Una presencia coherente que genera confianza inmediata.</div>
-              </div>
-            </li>
-          </ul>
-
-          <div style="margin-top:2.5rem;" class="reveal">
-            <a class="btn btn-primary" href="https://wa.me/56987689361?text=Hola%20me%20interesa%20una%20landing%20page" target="_blank">
-              Quiero mi landing page
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 4l4 3-4 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-          </div>
-        </div>
-
-        <div class="services-visual reveal">
-          <div class="services-img-stack">
-            <div class="si-card si-card-main">
-              <img
-                src="https://raw.githubusercontent.com/digitalmenteepro-cell/landing-pages-demo/refs/heads/main/IMG_7286.jpg"
-                alt="Trabajo realizado — diseño web"
-                loading="lazy"
-              />
-            </div>
-            <div class="si-card si-card-sub">
-              <img
-                src="https://raw.githubusercontent.com/digitalmenteepro-cell/landing-pages-demo/refs/heads/main/La%20Rd.PNG"
-                alt="Trabajo realizado — landing page"
-                loading="lazy"
-              />
-            </div>
-            <div class="si-badge">Diseño Profesional</div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ BENEFICIOS ═══════════════════════════════════ -->
-  <section id="beneficios" class="section">
-    <div class="container">
-      <div class="section-header center reveal">
-        <span class="label">Por qué elegirnos</span>
-        <h2 class="section-title">Resultados reales,<br>no solo buen diseño.</h2>
-        <p class="section-sub">Trabajamos con negocios locales que quieren dejar de depender solo de redes sociales y empezar a recibir clientes desde Google.</p>
-      </div>
-
-      <div class="benefits-grid">
-        <div class="benefit-card reveal">
-          <div class="benefit-icon">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-              <path d="M10 2L2 7v6l8 5 8-5V7L10 2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
-              <path d="M2 7l8 5 8-5" stroke="currentColor" stroke-width="1.5"/>
-            </svg>
-          </div>
-          <div class="benefit-name">Entrega en 4 a 5 días hábiles</div>
-          <div class="benefit-desc">Primera versión de tu página lista en menos de una semana. Sin esperas de meses ni procesos burocráticos innecesarios.</div>
-        </div>
-        <div class="benefit-card reveal">
-          <div class="benefit-icon">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-              <circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.5"/>
-              <path d="M7 10l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <div class="benefit-name">Precio fijo y transparente</div>
-          <div class="benefit-desc">Sin cobros ocultos. Cotización detallada antes de comenzar. Presupuesto fijo, no por hora ni sorpresas al final.</div>
-        </div>
-        <div class="benefit-card reveal">
-          <div class="benefit-icon">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-              <rect x="2" y="4" width="16" height="12" rx="2" stroke="currentColor" stroke-width="1.5"/>
-              <path d="M6 14V8l4 3 4-3v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <div class="benefit-name">Optimizada para celular</div>
-          <div class="benefit-desc">Más del 70% del tráfico en Chile viene de smartphones. Tu página se verá perfecta en cualquier dispositivo.</div>
-        </div>
-        <div class="benefit-card reveal">
-          <div class="benefit-icon">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-              <path d="M4 14l4-4 3 3 5-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              <rect x="2" y="2" width="16" height="16" rx="2" stroke="currentColor" stroke-width="1.5"/>
-            </svg>
-          </div>
-          <div class="benefit-name">Analítica de conversiones</div>
-          <div class="benefit-desc">Configuramos Google Analytics desde el primer día. Sabes exactamente cuántas personas llegan y qué hacen en tu página.</div>
-        </div>
-        <div class="benefit-card reveal">
-          <div class="benefit-icon">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-              <circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.5"/>
-              <path d="M10 6v4l3 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <div class="benefit-name">Soporte post-lanzamiento</div>
-          <div class="benefit-desc">No te dejamos solo después de publicar. Revisión de rendimiento al mes y ajustes incluidos en el precio.</div>
-        </div>
-        <div class="benefit-card reveal">
-          <div class="benefit-icon">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-              <path d="M10 2l2 6h6l-5 4 2 6-5-4-5 4 2-6L2 8h6l2-6z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <div class="benefit-name">Acceso total desde el día uno</div>
-          <div class="benefit-desc">Eres dueño de todo: dominio, hosting y archivos. Sin dependencia de nuestra plataforma. Tu negocio, tus activos.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ TRABAJOS ═════════════════════════════════════ -->
-  <section id="trabajos" class="section">
-    <div class="container">
-      <div class="gallery-header">
-        <div class="reveal">
-          <span class="label">Trabajos realizados</span>
-          <h2 class="section-title">Páginas que ya están<br><em>generando</em> clientes.</h2>
-        </div>
-        <p class="section-sub reveal">Cada proyecto adaptado al rubro, tono y público de cada negocio. Sin plantillas genéricas.</p>
-      </div>
-
-      <div class="gallery-grid">
-        <div class="gal-item reveal">
-          <img
-            src="https://raw.githubusercontent.com/digitalmenteepro-cell/landing-pages-demo/refs/heads/main/IMG_7286.jpg"
-            alt="Proyecto — diseño web para negocio local"
-            loading="lazy"
-          />
-          <span class="gal-label">Negocio local</span>
-        </div>
-        <div class="gal-item reveal">
-          <img
-            src="https://raw.githubusercontent.com/digitalmenteepro-cell/landing-pages-demo/refs/heads/main/La%20Rd.PNG"
-            alt="Proyecto — landing page gastronomía"
-            loading="lazy"
-          />
-          <span class="gal-label">Gastronomía</span>
-        </div>
-        <div class="gal-item reveal">
-          <img
-            src="https://raw.githubusercontent.com/digitalmenteepro-cell/landing-pages-demo/refs/heads/main/ChatGPT%20Image%2023%20may%202026%2C%2011_07_55%20a.m..png"
-            alt="Proyecto — landing page musical"
-            loading="lazy"
-          />
-          <span class="gal-label">Proyecto musical</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ PROMOCIONES ══════════════════════════════════ -->
-  <section id="promociones" class="section">
-    <div class="container">
-      <div class="section-header center reveal">
-        <span class="label">Promociones</span>
-        <h2 class="section-title">Ofertas actuales para<br>tu <em>negocio.</em></h2>
-        <p class="section-sub">Promociones pensadas para negocios locales que quieren dar el paso sin pagar precios de agencia grande.</p>
-      </div>
-
-      <div class="promo-grid promo-grid-3">
-        <div class="promo-card reveal">
-          <img
-            src="https://raw.githubusercontent.com/digitalmenteepro-cell/landing-pages-demo/refs/heads/main/66FEAD3B-F35F-42A3-B077-D2528F599BBC.PNG"
-            alt="Promoción — landing page con diseño incluido"
-            loading="lazy"
-          />
-        </div>
-        <div class="promo-card reveal">
-          <img
-            src="https://raw.githubusercontent.com/digitalmenteepro-cell/landing-pages-demo/refs/heads/main/B47B36E2-0F42-40A9-9925-44CD51DEE3B5.PNG"
-            alt="Promoción — oferta actual"
-            loading="lazy"
-          />
-        </div>
-        <div class="promo-card reveal">
-          <img
-            src="https://raw.githubusercontent.com/digitalmenteepro-cell/landing-pages-demo/refs/heads/main/images/2A5F29EC-9AF1-4980-BF72-17D9E8C2DB0D.PNG"
-            alt="Promoción — paquete Canva Pro plantillas"
-            loading="lazy"
-            onerror="this.src='https://raw.githubusercontent.com/digitalmenteepro-cell/landing-pages-demo/refs/heads/main/2A5F29EC-9AF1-4980-BF72-17D9E8C2DB0D.PNG'"
-          />
-        </div>
-      </div>
-
-      <div style="text-align:center; margin-top:2.5rem;" class="reveal">
-        <a class="btn btn-primary" href="https://wa.me/56987689361?text=Hola%20me%20interesa%20una%20landing%20page" target="_blank">
-          Consultar disponibilidad
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 4l4 3-4 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  <div class="hero-inner">
+    <!-- Copy -->
+    <div>
+      <div class="hero-eyebrow">Agencia Digital · Chile</div>
+      <h1 class="hero-title">
+        Tu negocio merece<br>
+        <em>verse increíble</em><br>
+        en internet.
+      </h1>
+      <p class="hero-sub">
+        Creamos landing pages modernas que generan confianza, atraen clientes y convierten visitas en ventas para tu negocio local.
+      </p>
+      <div class="hero-actions">
+        <a href="https://wa.me/56987689361?text=Hola,%20me%20interesa%20una%20landing%20page%20profesional"
+           target="_blank" class="btn btn-primary" style="font-size:16px; padding:16px 32px;">
+          💬 Quiero mi página web
+        </a>
+        <a href="#galeria" class="btn btn-ghost" style="color: rgba(255,255,255,.7); border-color: rgba(255,255,255,.2);">
+          Ver ejemplos →
         </a>
       </div>
-    </div>
-  </section>
-
-  <!-- ═══ CANVA PRO ════════════════════════════════════ -->
-  <section id="canva" class="section">
-    <div class="container">
-      <div class="canva-inner">
-
-        <div class="reveal">
-          <span class="label">Canva Pro</span>
-          <h2 class="section-title">10 plantillas<br>profesionales <em>editables.</em></h2>
-
-          <ul class="canva-list">
-            <li class="canva-list-item">
-              <div class="cli-dot"></div>
-              Plantillas editables en Canva Pro para cualquier rubro
-            </li>
-            <li class="canva-list-item">
-              <div class="cli-dot"></div>
-              Listas para usar desde el primer día sin conocimientos de diseño
-            </li>
-            <li class="canva-list-item">
-              <div class="cli-dot"></div>
-              Publicaciones para redes sociales, stories y promociones
-            </li>
-            <li class="canva-list-item">
-              <div class="cli-dot"></div>
-              Incluye tutorial de edición en video paso a paso
-            </li>
-            <li class="canva-list-item">
-              <div class="cli-dot"></div>
-              Soporte directo por WhatsApp para resolver dudas
-            </li>
-          </ul>
-
-          <div class="canva-price">
-            <span class="cp-currency">$</span>
-            <span class="cp-amount">19.990</span>
-            <span class="cp-period">CLP / pago único</span>
-          </div>
-
-          <a class="btn btn-primary" href="https://wa.me/56987689361?text=Hola%20me%20interesa%20una%20landing%20page" target="_blank">
-            Quiero las plantillas
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 4l4 3-4 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
+      <div class="hero-stats">
+        <div>
+          <div class="hero-stat-num">+80<span>%</span></div>
+          <div class="hero-stat-label">más confianza online</div>
         </div>
-
-        <div class="reveal">
-          <div class="canva-img-wrap">
-            <img
-              src="https://raw.githubusercontent.com/digitalmenteepro-cell/landing-pages-demo/refs/heads/main/2A5F29EC-9AF1-4980-BF72-17D9E8C2DB0D.PNG"
-              alt="10 plantillas profesionales editables en Canva Pro"
-              loading="lazy"
-            />
-          </div>
+        <div>
+          <div class="hero-stat-num">7<span> días</span></div>
+          <div class="hero-stat-label">de entrega promedio</div>
         </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ PROCESO ══════════════════════════════════════ -->
-  <section id="proceso" class="section">
-    <div class="container">
-      <div class="section-header center reveal">
-        <span class="label">Cómo trabajamos</span>
-        <h2 class="section-title">Claro, rápido<br>y <em>sin sorpresas.</em></h2>
-        <p class="section-sub">Un proceso probado que nos permite entregar páginas de alta calidad en 4 a 5 días hábiles. Tú sabes exactamente en qué etapa está tu proyecto.</p>
-      </div>
-
-      <div class="process-track">
-        <div class="process-step reveal">
-          <div class="ps-num">01</div>
-          <div class="ps-title">Reunión inicial</div>
-          <div class="ps-desc">Conversamos sobre tu negocio, público y metas. Sin formularios genéricos: una llamada real de 30 minutos para entender tu contexto completo.</div>
-        </div>
-        <div class="process-step reveal">
-          <div class="ps-num">02</div>
-          <div class="ps-title">Estrategia y estructura</div>
-          <div class="ps-desc">Definimos los mensajes clave, llamados a la acción y la arquitectura de la página. Presentamos propuesta antes de escribir código.</div>
-        </div>
-        <div class="process-step reveal">
-          <div class="ps-num">03</div>
-          <div class="ps-title">Diseño y desarrollo</div>
-          <div class="ps-desc">Construimos tu página con código limpio y optimizado. Dos rondas de ajustes incluidas para afinar cada detalle según tu feedback.</div>
-        </div>
-        <div class="process-step reveal">
-          <div class="ps-num">04</div>
-          <div class="ps-title">Lanzamiento y seguimiento</div>
-          <div class="ps-desc">Publicamos y configuramos analítica. Al mes enviamos un informe de visitas y conversiones con recomendaciones concretas.</div>
+        <div>
+          <div class="hero-stat-num">100<span>%</span></div>
+          <div class="hero-stat-label">responsive y mobile</div>
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- ═══ TESTIMONIOS ══════════════════════════════════ -->
-  <section id="testimonios" class="section">
-    <div class="container">
-      <div class="section-header center reveal">
-        <span class="label">Testimonios</span>
-        <h2 class="section-title">Lo que dicen<br>nuestros <em>clientes.</em></h2>
-      </div>
-
-      <div class="testi-grid">
-        <div class="testi-card reveal">
-          <div class="testi-stars">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor"><path d="M7 1l1.8 3.6 4 .6-2.9 2.8.7 4L7 10l-3.6 1.9.7-4L1.2 5.2l4-.6L7 1z"/></svg>
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor"><path d="M7 1l1.8 3.6 4 .6-2.9 2.8.7 4L7 10l-3.6 1.9.7-4L1.2 5.2l4-.6L7 1z"/></svg>
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor"><path d="M7 1l1.8 3.6 4 .6-2.9 2.8.7 4L7 10l-3.6 1.9.7-4L1.2 5.2l4-.6L7 1z"/></svg>
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor"><path d="M7 1l1.8 3.6 4 .6-2.9 2.8.7 4L7 10l-3.6 1.9.7-4L1.2 5.2l4-.6L7 1z"/></svg>
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor"><path d="M7 1l1.8 3.6 4 .6-2.9 2.8.7 4L7 10l-3.6 1.9.7-4L1.2 5.2l4-.6L7 1z"/></svg>
-          </div>
-          <p class="testi-quote">"Antes tenía solo Instagram. Ahora mi página recibe consultas todos los días. El proceso fue muy ordenado y en menos de una semana ya estaba publicada. Vale cada peso."</p>
-          <div class="testi-author">
-            <div class="ta-avatar">M</div>
-            <div>
-              <div class="ta-name">Marcela Torres</div>
-              <div class="ta-role">Centro de Estética, Providencia</div>
+    <!-- Visual -->
+    <div class="hero-visual">
+      <div class="hero-phone-wrap">
+        <div class="hero-phone">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+            <div class="phone-mockup-header">
+              <h4>Mi Negocio Pro</h4>
+              <p>Presencia digital profesional ✦</p>
+            </div>
+            <div class="phone-card">
+              <div class="phone-card-title">Diseño Profesional</div>
+              <div class="phone-card-sub">Landing page moderna y rápida</div>
+              <div class="phone-card-bar"><div class="phone-card-bar-fill" style="width:92%"></div></div>
+            </div>
+            <div class="phone-card">
+              <div class="phone-card-title">SEO en Google</div>
+              <div class="phone-card-sub">Aparecer en búsquedas locales</div>
+              <div class="phone-card-bar"><div class="phone-card-bar-fill" style="width:78%"></div></div>
+            </div>
+            <div class="phone-card">
+              <div class="phone-card-title">Velocidad de carga</div>
+              <div class="phone-card-sub">Carga en menos de 2 segundos</div>
+              <div class="phone-card-bar"><div class="phone-card-bar-fill" style="width:95%"></div></div>
+            </div>
+            <div class="phone-wa-btn">
+              <span class="wa-icon">💬</span> Contáctanos por WhatsApp
             </div>
           </div>
         </div>
 
-        <div class="testi-card reveal">
-          <div class="testi-stars">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor"><path d="M7 1l1.8 3.6 4 .6-2.9 2.8.7 4L7 10l-3.6 1.9.7-4L1.2 5.2l4-.6L7 1z"/></svg>
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor"><path d="M7 1l1.8 3.6 4 .6-2.9 2.8.7 4L7 10l-3.6 1.9.7-4L1.2 5.2l4-.6L7 1z"/></svg>
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor"><path d="M7 1l1.8 3.6 4 .6-2.9 2.8.7 4L7 10l-3.6 1.9.7-4L1.2 5.2l4-.6L7 1z"/></svg>
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor"><path d="M7 1l1.8 3.6 4 .6-2.9 2.8.7 4L7 10l-3.6 1.9.7-4L1.2 5.2l4-.6L7 1z"/></svg>
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor"><path d="M7 1l1.8 3.6 4 .6-2.9 2.8.7 4L7 10l-3.6 1.9.7-4L1.2 5.2l4-.6L7 1z"/></svg>
+        <div class="hero-badge">
+          <div class="hero-badge-label">
+            <span class="hero-badge-dot"></span>Estado del sitio
           </div>
-          <p class="testi-quote">"Quería algo profesional sin pagar una fortuna. El resultado superó lo que esperaba. Diseño moderno, carga rápida y perfecta en el celular. Mis clientes la elogian."</p>
-          <div class="testi-author">
-            <div class="ta-avatar">R</div>
-            <div>
-              <div class="ta-name">Rodrigo Fuentes</div>
-              <div class="ta-role">Taller Mecánico, Maipú</div>
-            </div>
-          </div>
+          <div class="hero-badge-value">Activo y Online</div>
         </div>
 
-        <div class="testi-card reveal">
-          <div class="testi-stars">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor"><path d="M7 1l1.8 3.6 4 .6-2.9 2.8.7 4L7 10l-3.6 1.9.7-4L1.2 5.2l4-.6L7 1z"/></svg>
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor"><path d="M7 1l1.8 3.6 4 .6-2.9 2.8.7 4L7 10l-3.6 1.9.7-4L1.2 5.2l4-.6L7 1z"/></svg>
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor"><path d="M7 1l1.8 3.6 4 .6-2.9 2.8.7 4L7 10l-3.6 1.9.7-4L1.2 5.2l4-.6L7 1z"/></svg>
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor"><path d="M7 1l1.8 3.6 4 .6-2.9 2.8.7 4L7 10l-3.6 1.9.7-4L1.2 5.2l4-.6L7 1z"/></svg>
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor"><path d="M7 1l1.8 3.6 4 .6-2.9 2.8.7 4L7 10l-3.6 1.9.7-4L1.2 5.2l4-.6L7 1z"/></svg>
-          </div>
-          <p class="testi-quote">"Duplicamos las consultas el primer mes. Lo que más valoro es que no nos dejaron solos después del lanzamiento. Hubo seguimiento real y mejoras concretas."</p>
-          <div class="testi-author">
-            <div class="ta-avatar">V</div>
-            <div>
-              <div class="ta-name">Valentina Ríos</div>
-              <div class="ta-role">Clínica Dental, Las Condes</div>
-            </div>
-          </div>
+        <div class="hero-badge2">
+          <div class="hero-badge2-label">Dominio incluido</div>
+          <div class="hero-badge2-value">tunegocio.cl ✦</div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ═══ CTA FINAL ════════════════════════════════════ -->
-  <section id="contacto" class="section">
-    <div class="cta-bg-glow"></div>
-    <div class="container">
-      <div class="cta-inner">
-        <h2 class="cta-title reveal">
-          Tu negocio merece<br>estar <em>en Google.</em>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- PROBLEMA                                               -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section id="problema">
+  <div class="container">
+    <div class="section-label reveal">
+      <span class="tag">El problema</span>
+    </div>
+    <h2 class="section-title reveal">
+      ¿Tu negocio sufre alguno<br>de estos problemas?
+    </h2>
+    <p class="section-sub reveal">
+      Muchos negocios excelentes pierden clientes todos los días por no tener una presencia digital a la altura.
+    </p>
+
+    <div class="problema-grid">
+      <div class="problema-card reveal">
+        <div class="problema-icon">🔍</div>
+        <h3>No apareces en Google</h3>
+        <p>Cuando alguien busca tu servicio en internet, encuentra a tu competencia y no a ti.</p>
+      </div>
+      <div class="problema-card reveal">
+        <div class="problema-icon">📱</div>
+        <h3>Página desactualizada</h3>
+        <p>Tu sitio web se ve viejo, lento o simplemente no funciona bien en celulares.</p>
+      </div>
+      <div class="problema-card reveal">
+        <div class="problema-icon">😟</div>
+        <h3>Falta de credibilidad</h3>
+        <p>Los clientes potenciales no confían en negocios que no tienen una buena presencia online.</p>
+      </div>
+      <div class="problema-card reveal">
+        <div class="problema-icon">💸</div>
+        <h3>Perdiendo clientes</h3>
+        <p>Sin un canal digital profesional, dejas ir dinero que podría estar llegando a tu negocio.</p>
+      </div>
+      <div class="problema-card reveal">
+        <div class="problema-icon">🤷</div>
+        <h3>Sin estrategia digital</h3>
+        <p>No sabes por dónde empezar ni qué necesitas para mejorar tu imagen en internet.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SOLUCIÓN                                               -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section id="servicios">
+  <div class="container">
+    <div class="solucion-inner">
+      <!-- Texto -->
+      <div>
+        <div class="section-label" style="text-align:left; margin-bottom:16px;" >
+          <span class="tag">La solución</span>
+        </div>
+        <h2 style="font-size:clamp(26px,4vw,42px); font-weight:800; line-height:1.15; letter-spacing:-.02em; margin-bottom:20px;" class="reveal">
+          Todo lo que tu negocio necesita para brillar online.
         </h2>
-        <p class="cta-sub reveal">
-          La primera reunión es gratuita y sin compromiso. Cuéntanos en qué etapa estás y te mostramos cómo podemos ayudarte.
+        <p style="font-size:16px; color:var(--gray-500); line-height:1.8; margin-bottom:36px;" class="reveal">
+          En Digitalmente Pro Chile combinamos diseño premium, tecnología moderna y estrategia digital para convertir tu presencia web en una herramienta de ventas real.
         </p>
-        <div class="cta-actions reveal">
-          <a class="btn btn-wsp" href="https://wa.me/56987689361?text=Hola%20me%20interesa%20una%20landing%20page" target="_blank">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-            </svg>
-            Escribir por WhatsApp
-          </a>
-          <a class="btn btn-outline" href="#servicios">Ver servicios</a>
-        </div>
-        <div class="cta-note reveal">Respuesta en menos de 2 horas en horario laboral &nbsp;·&nbsp; +56 9 8768 9361</div>
-      </div>
-    </div>
-  </section>
 
-  <!-- ═══ FLOATING WSP ═════════════════════════════════ -->
-  <a class="wsp-float" href="https://wa.me/56987689361?text=Hola%20me%20interesa%20una%20landing%20page" target="_blank" aria-label="Contactar por WhatsApp">
-    <span class="wsp-float-btn">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-      </svg>
-      <span>Cotizar ahora</span>
-    </span>
-  </a>
-
-  <!-- ═══ FOOTER ════════════════════════════════════════ -->
-  <footer>
-    <div class="container">
-      <div class="footer-inner">
-        <div class="footer-brand">
-          <img
-            src="https://raw.githubusercontent.com/digitalmenteepro-cell/landing-pages-demo/refs/heads/main/ChatGPT%20Image%2023%20may%202026%2C%2011_53_49%20a.m..png"
-            alt="Digitalmente Pro Chile"
-            onerror="this.style.display='none'"
-          />
-          <span class="footer-name">Digitalmente Pro Chile</span>
-        </div>
-
-        <ul class="footer-links">
-          <li><a href="#servicios">Servicios</a></li>
-          <li><a href="#trabajos">Trabajos</a></li>
-          <li><a href="#promociones">Promociones</a></li>
-          <li><a href="https://wa.me/56987689361?text=Hola%20me%20interesa%20una%20landing%20page" target="_blank">Contacto</a></li>
+        <ul class="solucion-list" id="solucion">
+          <li class="solucion-item reveal">
+            <div class="solucion-check">✦</div>
+            <div class="solucion-item-text">
+              <h4>Landing page moderna</h4>
+              <p>Diseño profesional, elegante y adaptado a tu industria.</p>
+            </div>
+          </li>
+          <li class="solucion-item reveal">
+            <div class="solucion-check">✦</div>
+            <div class="solucion-item-text">
+              <h4>100% responsive para celular</h4>
+              <p>Tu página se ve perfecta en cualquier dispositivo.</p>
+            </div>
+          </li>
+          <li class="solucion-item reveal">
+            <div class="solucion-check">✦</div>
+            <div class="solucion-item-text">
+              <h4>Botón directo a WhatsApp</h4>
+              <p>Tus clientes te contactan con un solo clic.</p>
+            </div>
+          </li>
+          <li class="solucion-item reveal">
+            <div class="solucion-check">✦</div>
+            <div class="solucion-item-text">
+              <h4>SEO básico para Google</h4>
+              <p>Configuración inicial para que Google pueda encontrarte.</p>
+            </div>
+          </li>
+          <li class="solucion-item reveal">
+            <div class="solucion-check">✦</div>
+            <div class="solucion-item-text">
+              <h4>Dominio .cl incluido</h4>
+              <p>Tu nombre de dominio chileno por 1 año completo.</p>
+            </div>
+          </li>
         </ul>
+      </div>
 
-        <span class="footer-copy">© 2025 Digitalmente Pro Chile &nbsp;·&nbsp; Santiago</span>
+      <!-- Visual -->
+      <div class="solucion-visual reveal">
+        <div class="sv-tag">✦ Resultados reales</div>
+        <div class="sv-title">Tu negocio con presencia digital profesional</div>
+        <div class="sv-metric">
+          <span class="sv-metric-label">Confianza del cliente</span>
+          <span class="sv-metric-value good">Alta ↑</span>
+        </div>
+        <div class="sv-metric">
+          <span class="sv-metric-label">Visibilidad en Google</span>
+          <span class="sv-metric-value orange">+75%</span>
+        </div>
+        <div class="sv-metric">
+          <span class="sv-metric-label">Velocidad del sitio</span>
+          <span class="sv-metric-value good">Excelente</span>
+        </div>
+        <div class="sv-metric">
+          <span class="sv-metric-label">Diseño responsive</span>
+          <span class="sv-metric-value good">✓ Activado</span>
+        </div>
+        <div class="sv-metric">
+          <span class="sv-metric-label">Botón WhatsApp</span>
+          <span class="sv-metric-value good">✓ Integrado</span>
+        </div>
       </div>
     </div>
-  </footer>
+  </div>
+</section>
 
-  <!-- ═══ JAVASCRIPT ════════════════════════════════════ -->
-  <script>
-    // Nav scroll
-    const nav = document.getElementById('nav');
-    const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 50);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
 
-    // Mobile menu
-    const hamburger = document.getElementById('hamburger');
-    const mobileNav = document.getElementById('mobileNav');
-    const bars = hamburger.querySelectorAll('span');
-    let menuOpen = false;
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- BENEFICIOS                                             -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section id="beneficios">
+  <div class="container">
+    <div class="section-label reveal"><span class="tag">Beneficios</span></div>
+    <h2 class="section-title reveal">¿Por qué elegir<br>Digitalmente Pro Chile?</h2>
+    <p class="section-sub reveal">Cada detalle está pensado para que tu negocio se destaque y genere más clientes.</p>
 
-    hamburger.addEventListener('click', () => {
-      menuOpen = !menuOpen;
-      mobileNav.classList.toggle('open', menuOpen);
-      document.body.style.overflow = menuOpen ? 'hidden' : '';
-      if (menuOpen) {
-        bars[0].style.transform = 'translateY(6.5px) rotate(45deg)';
-        bars[1].style.opacity   = '0';
-        bars[2].style.transform = 'translateY(-6.5px) rotate(-45deg)';
-      } else {
-        bars.forEach(b => { b.style.transform = ''; b.style.opacity = ''; });
+    <div class="beneficios-grid">
+      <div class="benefit-card reveal">
+        <div class="benefit-icon">🎨</div>
+        <h3>Diseño premium</h3>
+        <p>No usamos plantillas genéricas. Cada página se diseña pensando en tu negocio y en lo que tus clientes esperan ver.</p>
+      </div>
+      <div class="benefit-card reveal">
+        <div class="benefit-icon">📱</div>
+        <h3>Adaptación móvil total</h3>
+        <p>Más del 70% de las visitas vienen desde celulares. Tu página se verá perfecta en cualquier pantalla.</p>
+      </div>
+      <div class="benefit-card reveal">
+        <div class="benefit-icon">⚡</div>
+        <h3>Carga ultrarrápida</h3>
+        <p>Código limpio y optimizado para que tu sitio cargue en menos de 2 segundos. La velocidad genera confianza.</p>
+      </div>
+      <div class="benefit-card reveal">
+        <div class="benefit-icon">💼</div>
+        <h3>Imagen profesional</h3>
+        <p>Tu negocio proyectará la imagen seria y confiable que merece, igual que las marcas grandes.</p>
+      </div>
+      <div class="benefit-card reveal">
+        <div class="benefit-icon">💬</div>
+        <h3>WhatsApp integrado</h3>
+        <p>Botón de contacto directo que convierte visitantes en clientes con un solo clic.</p>
+      </div>
+      <div class="benefit-card reveal">
+        <div class="benefit-icon">🌐</div>
+        <h3>Presencia digital real</h3>
+        <p>Dominio .cl propio, hosting confiable y todo configurado para que aparezcas en Google.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- GALERÍA / MOCKUPS                                       -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section id="galeria">
+  <div class="container">
+    <div class="section-label reveal"><span class="tag">Portfolio</span></div>
+    <h2 class="section-title reveal">Ejemplos de lo que<br>podemos crear para ti</h2>
+    <p class="section-sub reveal">Diseños adaptados para diferentes tipos de negocios locales en Chile.</p>
+
+    <div class="galeria-grid">
+      <!-- Restaurante -->
+      <div class="galeria-card reveal">
+        <div class="galeria-browser">
+          <div class="galeria-dot"></div>
+          <div class="galeria-dot"></div>
+          <div class="galeria-dot"></div>
+          <div class="galeria-url">restauranteelrancho.cl</div>
+        </div>
+        <div class="galeria-screen screen-restaurant">
+          <div class="mock-hero-img">
+            <div class="mock-plate"></div>
+          </div>
+          <div class="mock-content">
+            <div class="mock-title">El Rancho Restaurant</div>
+            <div class="mock-sub">Cocina chilena auténtica · Santiago</div>
+            <div class="mock-btn">Reservar mesa</div>
+          </div>
+          <div class="galeria-tag">🍽 Restaurante</div>
+        </div>
+      </div>
+
+      <!-- Barbería -->
+      <div class="galeria-card reveal">
+        <div class="galeria-browser">
+          <div class="galeria-dot"></div>
+          <div class="galeria-dot"></div>
+          <div class="galeria-dot"></div>
+          <div class="galeria-url">barberiapremium.cl</div>
+        </div>
+        <div class="galeria-screen screen-barber">
+          <div class="mock-stripes"></div>
+          <div class="mock-content">
+            <div class="mock-title">BarberPro</div>
+            <div class="mock-divider"></div>
+            <div class="mock-rating">★★★★★</div>
+            <div class="mock-address">📍 Providencia, Santiago</div>
+          </div>
+          <div class="galeria-tag">✂️ Barbería</div>
+        </div>
+      </div>
+
+      <!-- Hotel -->
+      <div class="galeria-card reveal">
+        <div class="galeria-browser">
+          <div class="galeria-dot"></div>
+          <div class="galeria-dot"></div>
+          <div class="galeria-dot"></div>
+          <div class="galeria-url">hotelpatagonia.cl</div>
+        </div>
+        <div class="galeria-screen screen-hotel">
+          <div class="mock-img"></div>
+          <div class="mock-stars">★★★★</div>
+          <div class="mock-content">
+            <div class="mock-label">Hotel Boutique</div>
+            <div class="mock-title">Patagonia<br>Lodge</div>
+            <div class="mock-price">Desde <span>$89.000 CLP</span>/noche</div>
+          </div>
+          <div class="galeria-tag">🏨 Hotel</div>
+        </div>
+      </div>
+
+      <!-- Café -->
+      <div class="galeria-card reveal">
+        <div class="galeria-browser">
+          <div class="galeria-dot"></div>
+          <div class="galeria-dot"></div>
+          <div class="galeria-dot"></div>
+          <div class="galeria-url">caferaices.cl</div>
+        </div>
+        <div class="galeria-screen screen-cafe">
+          <div class="mock-circle"></div>
+          <div class="mock-circle2"></div>
+          <div class="mock-content">
+            <div class="mock-label">Specialty Coffee</div>
+            <div class="mock-title">Café<br>Raíces</div>
+            <div class="mock-tagline">Tostado de origen, con alma</div>
+          </div>
+          <div class="galeria-tag">☕ Cafetería</div>
+        </div>
+      </div>
+
+      <!-- Empresa -->
+      <div class="galeria-card reveal">
+        <div class="galeria-browser">
+          <div class="galeria-dot"></div>
+          <div class="galeria-dot"></div>
+          <div class="galeria-dot"></div>
+          <div class="galeria-url">constructorainovar.cl</div>
+        </div>
+        <div class="galeria-screen screen-empresa">
+          <div class="mock-sidebar"></div>
+          <div class="mock-logo"></div>
+          <div class="mock-content">
+            <div class="mock-title">Constructora Inovar</div>
+            <div class="mock-sub">Obras civiles y remodelaciones</div>
+            <div class="mock-bar">
+              <div class="mock-bar-item"></div>
+              <div class="mock-bar-item"></div>
+              <div class="mock-bar-item"></div>
+            </div>
+          </div>
+          <div class="mock-btn-sm">Solicitar cotización</div>
+          <div class="galeria-tag">🏢 Empresa</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- PLAN / PRECIO                                           -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section id="plan">
+  <div class="container">
+    <div class="section-label reveal"><span class="tag" style="background:rgba(240,90,36,.2); border-color:rgba(240,90,36,.3);">Precio</span></div>
+    <h2 class="section-title reveal">Sin letras pequeñas.<br>Un solo precio, todo incluido.</h2>
+    <p class="section-sub reveal">Todo lo que necesitas para tener una presencia digital profesional desde el primer día.</p>
+
+    <div class="plan-card-wrap">
+      <div class="plan-card reveal">
+        <div class="plan-badge-top">✦ Más popular</div>
+        <div class="plan-name">Paquete Digital Pro</div>
+        <div class="plan-price-wrap">
+          <span class="plan-price">$69.900</span>
+          <span class="plan-price-iva">+ IVA</span>
+        </div>
+        <div class="plan-price-note">Pago único · Sin mensualidades sorpresa</div>
+        <div class="plan-divider"></div>
+        <ul class="plan-features">
+          <li class="plan-feature">
+            <div class="plan-feature-check">✓</div>
+            Landing page profesional a medida
+          </li>
+          <li class="plan-feature">
+            <div class="plan-feature-check">✓</div>
+            Dominio .cl por 1 año incluido
+          </li>
+          <li class="plan-feature">
+            <div class="plan-feature-check">✓</div>
+            Botón de contacto directo a WhatsApp
+          </li>
+          <li class="plan-feature">
+            <div class="plan-feature-check">✓</div>
+            Información del negocio completa
+          </li>
+          <li class="plan-feature">
+            <div class="plan-feature-check">✓</div>
+            Galería de imágenes del negocio
+          </li>
+          <li class="plan-feature">
+            <div class="plan-feature-check">✓</div>
+            SEO básico para Google
+          </li>
+          <li class="plan-feature">
+            <div class="plan-feature-check">✓</div>
+            Diseño 100% responsive para celular
+          </li>
+          <li class="plan-feature">
+            <div class="plan-feature-check">✓</div>
+            Entrega en 7 días hábiles
+          </li>
+        </ul>
+        <a href="https://wa.me/56987689361?text=Hola,%20me%20interesa%20una%20landing%20page%20profesional"
+           target="_blank" class="btn btn-primary" style="width:100%; justify-content:center; font-size:16px; padding:16px;">
+          💬 Quiero este paquete
+        </a>
+        <div class="plan-guarantee">
+          <div class="plan-guarantee-icon">🛡</div>
+          <div class="plan-guarantee-text">
+            <strong>Garantía de satisfacción:</strong> Si no te gusta el diseño, lo corregimos sin costo adicional.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- CONFIANZA                                              -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section id="confianza">
+  <div class="container">
+    <div class="confianza-grid">
+      <div class="confianza-text">
+        <div style="margin-bottom:16px;"><span class="tag">Por qué elegirnos</span></div>
+        <h2 class="reveal">
+          Somos un equipo<br><em>apasionado</em><br>por tu éxito digital.
+        </h2>
+        <p class="reveal">
+          En Digitalmente Pro Chile entendemos los negocios locales chilenos. Combinamos diseño profesional con estrategia digital real para que tu marca genere confianza desde el primer clic.
+        </p>
+        <p class="reveal">
+          No somos una plataforma masiva ni un generador automático. Cada página es diseñada con atención personalizada para que refleje la identidad real de tu negocio.
+        </p>
+      </div>
+
+      <div class="confianza-pillars">
+        <div class="confianza-pillar reveal">
+          <div class="confianza-pillar-num">01</div>
+          <div class="confianza-pillar-content">
+            <h4>Diseño a medida</h4>
+            <p>Cada proyecto se diseña desde cero, adaptado a tu industria y clientes.</p>
+          </div>
+        </div>
+        <div class="confianza-pillar reveal">
+          <div class="confianza-pillar-num">02</div>
+          <div class="confianza-pillar-content">
+            <h4>Atención personalizada</h4>
+            <p>Contacto directo y comunicación clara en todo momento del proceso.</p>
+          </div>
+        </div>
+        <div class="confianza-pillar reveal">
+          <div class="confianza-pillar-num">03</div>
+          <div class="confianza-pillar-content">
+            <h4>Entrega rápida</h4>
+            <p>Tu página estará lista y funcionando en menos de 7 días hábiles.</p>
+          </div>
+        </div>
+        <div class="confianza-pillar reveal">
+          <div class="confianza-pillar-num">04</div>
+          <div class="confianza-pillar-content">
+            <h4>Precio justo</h4>
+            <p>Sin costos ocultos. Un precio claro que incluye absolutamente todo.</p>
+          </div>
+        </div>
+        <div class="confianza-pillar reveal">
+          <div class="confianza-pillar-num">05</div>
+          <div class="confianza-pillar-content">
+            <h4>Soporte post-entrega</h4>
+            <p>Te acompañamos después de la entrega para que todo funcione perfecto.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- TESTIMONIOS                                            -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section id="testimonios">
+  <div class="container">
+    <div class="section-label reveal"><span class="tag">Testimonios</span></div>
+    <h2 class="section-title reveal">Lo que dicen<br>nuestros clientes</h2>
+    <p class="section-sub reveal">Negocios reales que transformaron su presencia digital con nosotros.</p>
+
+    <div class="testimonios-grid">
+      <div class="testimonio-card reveal">
+        <div class="testimonio-stars">★★★★★</div>
+        <p class="testimonio-text">
+          Tenía miedo de contratar algo así porque no entiendo de tecnología, pero el proceso fue súper simple. Me explicaron todo y la página quedó exactamente como la imaginaba. Mis clientes me preguntan dónde hice la página.
+        </p>
+        <div class="testimonio-author">
+          <div class="testimonio-avatar" style="background: linear-gradient(135deg, #F05A24, #FF9B6A);">C</div>
+          <div>
+            <div class="testimonio-name">Carlos Mendoza</div>
+            <div class="testimonio-biz">Taller Mecánico · Maipú, RM</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonio-card reveal">
+        <div class="testimonio-stars">★★★★★</div>
+        <p class="testimonio-text">
+          Mi cafetería necesitaba presencia en Google y no sabía cómo hacerlo. Me ayudaron con todo, desde el dominio hasta la configuración. En menos de 2 semanas ya tenía el sitio y empezaron a llegar más clientes.
+        </p>
+        <div class="testimonio-author">
+          <div class="testimonio-avatar" style="background: linear-gradient(135deg, #5C3B1A, #C97A30);">V</div>
+          <div>
+            <div class="testimonio-name">Valentina Rojas</div>
+            <div class="testimonio-biz">Café Raíces · Las Condes</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonio-card reveal">
+        <div class="testimonio-stars">★★★★★</div>
+        <p class="testimonio-text">
+          Excelente trabajo. Me hicieron una landing para mi barbería que se ve mucho mejor que la de negocios más grandes. El botón de WhatsApp funciona perfecto y recibo consultas todos los días.
+        </p>
+        <div class="testimonio-author">
+          <div class="testimonio-avatar" style="background: linear-gradient(135deg, #1A1A1A, #3A3A3A);">M</div>
+          <div>
+            <div class="testimonio-name">Matías Soto</div>
+            <div class="testimonio-biz">BarberPro Style · Ñuñoa</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonio-card reveal">
+        <div class="testimonio-stars">★★★★★</div>
+        <p class="testimonio-text">
+          Me sorprendió la rapidez. En menos de una semana ya tenía mi página online con el dominio y todo. El diseño quedó muy limpio y profesional. Totalmente recomendado para cualquier emprendedor.
+        </p>
+        <div class="testimonio-author">
+          <div class="testimonio-avatar" style="background: linear-gradient(135deg, #1A3A5C, #2E7DBF);">A</div>
+          <div>
+            <div class="testimonio-name">Andrea Fuentes</div>
+            <div class="testimonio-biz">Centro de Estética · Concepción</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonio-card reveal">
+        <div class="testimonio-stars">★★★★★</div>
+        <p class="testimonio-text">
+          El precio es muy justo considerando todo lo que incluye. Dominio, diseño, WhatsApp, Google... Lo tenía todo en un solo paquete. Sin duda lo volvería a contratar si abro otro negocio.
+        </p>
+        <div class="testimonio-author">
+          <div class="testimonio-avatar" style="background: linear-gradient(135deg, #1A5C2A, #2EBF54);">R</div>
+          <div>
+            <div class="testimonio-name">Rodrigo Ibáñez</div>
+            <div class="testimonio-biz">Constructora Familiar · Temuco</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonio-card reveal">
+        <div class="testimonio-stars">★★★★☆</div>
+        <p class="testimonio-text">
+          Muy buen servicio. Me atendieron rápido y resolvieron todas mis dudas antes de contratar. La página quedó bien y mis clientes me dicen que se ve seria. Buen precio para lo que entregan.
+        </p>
+        <div class="testimonio-author">
+          <div class="testimonio-avatar" style="background: linear-gradient(135deg, #5C1A3A, #BF2E7D);">P</div>
+          <div>
+            <div class="testimonio-name">Paula Castillo</div>
+            <div class="testimonio-biz">Pet Shop · Viña del Mar</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- FAQ                                                     -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section id="faq">
+  <div class="container">
+    <div class="section-label reveal"><span class="tag">Preguntas frecuentes</span></div>
+    <h2 class="section-title reveal">Todo lo que<br>necesitas saber</h2>
+    <p class="section-sub reveal">Resolvemos tus dudas antes de que las tengas.</p>
+
+    <div class="faq-list" id="faqList">
+      <div class="faq-item">
+        <button class="faq-question">
+          ¿Cuánto tiempo demora en estar lista mi página?
+          <div class="faq-icon">+</div>
+        </button>
+        <div class="faq-answer">
+          <p>El plazo habitual de entrega es de 5 a 7 días hábiles desde que recibimos toda la información de tu negocio (textos, fotos, datos de contacto). En casos más simples puede ser incluso más rápido.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          ¿El dominio .cl está incluido en el precio?
+          <div class="faq-icon">+</div>
+        </button>
+        <div class="faq-answer">
+          <p>Sí, el paquete incluye el registro de un dominio .cl por 1 año sin costo adicional. Al vencer el año, puedes renovarlo directamente con el proveedor o con nosotros a precio de costo.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          ¿La página funciona bien en celulares?
+          <div class="faq-icon">+</div>
+        </button>
+        <div class="faq-answer">
+          <p>Absolutamente. Todas nuestras páginas son 100% responsive, lo que significa que se adaptan y se ven perfectas en celulares, tablets y computadores. El diseño mobile es nuestra prioridad.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          ¿Necesito contratar hosting por separado?
+          <div class="faq-icon">+</div>
+        </button>
+        <div class="faq-answer">
+          <p>No. El paquete incluye todo lo necesario para que tu página esté online: diseño, dominio y alojamiento. No necesitas contratar nada adicional para que funcione.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          ¿Puedo editar el contenido de mi página después?
+          <div class="faq-icon">+</div>
+        </button>
+        <div class="faq-answer">
+          <p>Sí. Si necesitas actualizar textos, fotos o cualquier información, contáctanos directamente y nos encargamos. Nosotros gestionamos todos los cambios y el mantenimiento de tu página para que tú te puedas enfocar en tu negocio.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          ¿Qué información necesito entregar para comenzar?
+          <div class="faq-icon">+</div>
+        </button>
+        <div class="faq-answer">
+          <p>Solo necesitamos: nombre del negocio, descripción de tus servicios, fotos (si tienes), horario, dirección o zona de servicio y número de WhatsApp. Si no tienes fotos, te ayudamos a conseguir imágenes de calidad.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          ¿Aparecerá mi negocio en Google inmediatamente?
+          <div class="faq-icon">+</div>
+        </button>
+        <div class="faq-answer">
+          <p>El SEO básico que incluimos ayuda a que Google indexe tu página correctamente. Sin embargo, aparecer en los primeros resultados toma tiempo (entre 1 y 3 meses). Para resultados más rápidos, existen estrategias adicionales de posicionamiento.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- CTA FINAL                                              -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section id="cta-final">
+  <div class="cta-final-inner reveal">
+    <h2>
+      Tu competencia ya<br>está en internet.<br>
+      <em>¿Y tú?</em>
+    </h2>
+    <p>
+      Empieza hoy. En menos de 7 días tu negocio tendrá la presencia digital que merece, a un precio que tiene sentido.
+    </p>
+    <div class="cta-final-actions">
+      <a href="https://wa.me/56987689361?text=Hola,%20me%20interesa%20una%20landing%20page%20profesional"
+         target="_blank" class="btn-wa">
+        💬 Hablemos por WhatsApp
+      </a>
+      <a href="#plan" class="btn btn-ghost" style="color:rgba(255,255,255,.7); border-color:rgba(255,255,255,.2); font-size:15px;">
+        Ver el paquete →
+      </a>
+    </div>
+    <div class="cta-trust">
+      <div class="cta-trust-item">Entrega en 7 días</div>
+      <div class="cta-trust-item">Dominio .cl incluido</div>
+      <div class="cta-trust-item">100% responsive</div>
+      <div class="cta-trust-item">Sin mensualidades</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- FOOTER                                                  -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">Digitalmente<span>Pro</span> Chile</div>
+    <div class="footer-links">
+      <a href="#servicios">Servicios</a>
+      <a href="#galeria">Portfolio</a>
+      <a href="#plan">Precios</a>
+      <a href="#faq">FAQ</a>
+      <a href="https://wa.me/56987689361?text=Hola,%20me%20interesa%20una%20landing%20page%20profesional" target="_blank">Contacto</a>
+    </div>
+    <div class="footer-copy">© 2025 Digitalmente Pro Chile · Todos los derechos reservados</div>
+  </div>
+</footer>
+
+
+<!-- WhatsApp flotante -->
+<a href="https://wa.me/56987689361?text=Hola,%20me%20interesa%20una%20landing%20page%20profesional"
+   target="_blank" class="wa-float" aria-label="WhatsApp">
+  <div class="wa-float-pulse"></div>
+  💬
+</a>
+
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- JAVASCRIPT                                              -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<script>
+  /* ── Header scroll ── */
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 30);
+  }, { passive: true });
+
+  /* ── Hamburger / Mobile menu ── */
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+  });
+  function closeMobile() { mobileMenu.classList.remove('open'); }
+
+  /* ── Scroll reveal ── */
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        observer.unobserve(e.target);
       }
     });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
-    function closeMobile() {
-      menuOpen = false;
-      mobileNav.classList.remove('open');
-      document.body.style.overflow = '';
-      bars.forEach(b => { b.style.transform = ''; b.style.opacity = ''; });
-    }
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-    // Scroll reveal
-    const revealEls = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const siblings = Array.from(entry.target.parentElement.querySelectorAll('.reveal'));
-          const idx = siblings.indexOf(entry.target);
-          entry.target.style.transitionDelay = `${Math.min(idx * 0.08, 0.32)}s`;
-          entry.target.classList.add('in');
-          observer.unobserve(entry.target);
-        }
+  /* ── FAQ accordion ── */
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const answer = item.querySelector('.faq-answer');
+      const isOpen = item.classList.contains('open');
+
+      // Close all
+      document.querySelectorAll('.faq-item').forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.faq-answer').classList.remove('open');
       });
-    }, { threshold: 0.1, rootMargin: '0px 0px -48px 0px' });
 
-    revealEls.forEach(el => observer.observe(el));
-
-    // Smooth anchor with offset
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', e => {
-        const id = anchor.getAttribute('href').slice(1);
-        const target = document.getElementById(id);
-        if (!target) return;
-        e.preventDefault();
-        window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
-      });
+      // Open clicked if was closed
+      if (!isOpen) {
+        item.classList.add('open');
+        answer.classList.add('open');
+      }
     });
-  </script>
+  });
+
+  /* ── Smooth anchor scroll ── */
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const id = a.getAttribute('href').slice(1);
+      const target = document.getElementById(id);
+      if (target) {
+        e.preventDefault();
+        const offset = 72;
+        const top = target.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    });
+  });
+</script>
 
 </body>
 </html>
