@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Carta Digital</title>
-
 <style>
+*{box-sizing:border-box;}
 body{
   margin:0;
   font-family: Arial, sans-serif;
@@ -13,37 +13,85 @@ body{
   color:#fff;
 }
 
-header{
-  background:#ff5a1f;
-  padding:25px;
+/* ── HERO NAV ── */
+.hero-nav{
+  position:relative;
+  width:100%;
+  height:260px;
+  overflow:hidden;
+}
+@media(min-width:600px){
+  .hero-nav{height:360px;}
+}
+.hero-nav img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 60%;
+  display:block;
+}
+.hero-nav::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.15) 0%,
+    rgba(0,0,0,0.55) 70%,
+    rgba(17,17,17,1) 100%
+  );
+}
+.hero-text{
+  position:absolute;
+  bottom:0;
+  left:0;
+  right:0;
+  z-index:1;
+  padding:20px 24px 28px;
   text-align:center;
 }
-
-header h1{
+.hero-text h1{
   margin:0;
-  font-size:32px;
+  font-size:clamp(26px,6vw,42px);
+  font-weight:800;
+  letter-spacing:-0.5px;
+  color:#fff;
+  text-shadow:0 2px 8px rgba(0,0,0,0.5);
+}
+.hero-text p{
+  margin:6px 0 0;
+  font-size:clamp(13px,3vw,16px);
+  color:rgba(255,255,255,0.75);
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+}
+.hero-badge{
+  display:inline-block;
+  background:#ff5a1f;
+  color:#fff;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  padding:4px 12px;
+  border-radius:20px;
+  margin-bottom:10px;
 }
 
-header p{
-  margin:8px 0 0;
-}
-
+/* ── CONTENIDO ── */
 section{
   padding:25px;
   max-width:800px;
   margin:auto;
 }
-
 .categoria{
   margin-bottom:35px;
 }
-
 .categoria h2{
   color:#ff5a1f;
   border-bottom:1px solid #ff5a1f;
   padding-bottom:8px;
 }
-
 .item{
   display:flex;
   justify-content:space-between;
@@ -51,24 +99,20 @@ section{
   padding:14px 0;
   border-bottom:1px solid #333;
 }
-
 .item h3{
   margin:0;
   font-size:18px;
 }
-
 .item p{
   margin:5px 0 0;
   color:#bbb;
   font-size:14px;
 }
-
 .precio{
   color:#ff5a1f;
   font-weight:bold;
   white-space:nowrap;
 }
-
 .whatsapp{
   display:block;
   background:#25D366;
@@ -81,7 +125,6 @@ section{
   text-decoration:none;
   font-weight:bold;
 }
-
 footer{
   text-align:center;
   padding:25px;
@@ -90,19 +133,26 @@ footer{
 }
 </style>
 </head>
-
 <body>
 
-<header>
-  <h1>La Ruta del Sándwich</h1>
-  <p>Carta digital</p>
-</header>
+<!-- ── HERO BANNER ── -->
+<nav class="hero-nav">
+  <img
+    src="https://raw.githubusercontent.com/digitalmenteepro-cell/landing-pages-demo/refs/heads/main/peruvian%20food.jpg"
+    alt="Comida peruana deliciosa"
+    loading="eager"
+  >
+  <div class="hero-text">
+    <div class="hero-badge">Carta Digital</div>
+    <h1>La Ruta del Sándwich</h1>
+    <p>Aysén · Patagonia</p>
+  </div>
+</nav>
 
+<!-- ── MENÚ ── -->
 <section>
-
   <div class="categoria">
     <h2>Sándwiches</h2>
-
     <div class="item">
       <div>
         <h3>Ruta Austral</h3>
@@ -110,7 +160,6 @@ footer{
       </div>
       <div class="precio">$7.990</div>
     </div>
-
     <div class="item">
       <div>
         <h3>Patagónico</h3>
@@ -118,7 +167,6 @@ footer{
       </div>
       <div class="precio">$9.990</div>
     </div>
-
     <div class="item">
       <div>
         <h3>Tentación</h3>
@@ -127,10 +175,8 @@ footer{
       <div class="precio">$8.990</div>
     </div>
   </div>
-
   <div class="categoria">
     <h2>Agregados</h2>
-
     <div class="item">
       <div>
         <h3>Papas fritas</h3>
@@ -138,7 +184,6 @@ footer{
       </div>
       <div class="precio">$2.990</div>
     </div>
-
     <div class="item">
       <div>
         <h3>Extra queso</h3>
@@ -147,10 +192,8 @@ footer{
       <div class="precio">$1.000</div>
     </div>
   </div>
-
   <div class="categoria">
     <h2>Bebidas</h2>
-
     <div class="item">
       <div>
         <h3>Bebida lata</h3>
@@ -158,7 +201,6 @@ footer{
       </div>
       <div class="precio">$1.500</div>
     </div>
-
     <div class="item">
       <div>
         <h3>Agua mineral</h3>
@@ -167,16 +209,12 @@ footer{
       <div class="precio">$1.200</div>
     </div>
   </div>
-
   <a class="whatsapp" href="https://wa.me/56920723352">
     Pedir por WhatsApp
   </a>
-
 </section>
-
 <footer>
   La Ruta del Sándwich · Aysén, Patagonia
 </footer>
-
 </body>
 </html>
